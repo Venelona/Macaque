@@ -885,6 +885,21 @@ Select.talkstuff
 		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[81]I'm fine, kiddo. You don't have to ask me all that.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[28]I spent the whole day looking for bananas. Don't laugh, it was a serious ordeal. ... I didn't find any, and I'm still pissed off about it.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[28]Hanging out with Bai He. That kid needs therapy after the whole LBD body possession shtick. I'm not a therapist, but I can show her some sick shadow plays.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		if nowshell == "Six Eared Macaque" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
+			{
+			//Then these conversations are available! Note the brackets enclosing this set of dialogue.
+			"\0\s[1]\i[5]*You tell him you like his rainbow ears. \n\n[half]\w8\w4\s[27]Keep saying things like that and I'll hide them away again.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		
+			"\i[5]*You ask him why he hides his ears. \n\n[half]\w8\w4\s[11]Finding right headphones is s\w2o\w2o\w2o\w2o hard.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		
+			"\i[5]*You ask him why he hides his ears. \n\n[half]\w8\w4\s[42]So people won't ask me weird questions about them. \w8\w5\s[52]\i[6]Like \f[italic,true]somebody\f[italic,false].\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+			
+			"\i[5]*You ask him how he hides his ears. \n\n[half]\w8\w4\s[25]With a wig. \w8\w5\s[7]Magic, \w4pal, \w4how else?\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+			
+			"\i[5]*You ask him if he can hear better like this. \n\n[half]\w8\w4\s[31]Yeah. \w8\w4And, \w4believe me, \w4bud, \w4some things are better left unheard.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+			
+			"\i[5]*You call him cute. \n\n[half]\w8\w4\s[12]Hmph.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+			}
 	}
 }
 
@@ -1031,7 +1046,7 @@ Select.watchmusic//MUSIC
 	lastTalk = ""
 	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[28]Sure, \w4I guess.\s[62]\w8\w8 \s[56]Don't make it too loud.\e"
 	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[53]Aha.\s[62]\w8\w8 \s[56]What tunes you got?\e"
-	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[27]Okay.\s[62]\w8\w8 \s[56]Know that I'll be judging your music taste.\e"
+	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[27]Okay.\s[62]\w8\w8 \s[56]Know that I'll be judging your music tastes harshly.\e"
 	if monkeymood < 0
 	{
 		"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"

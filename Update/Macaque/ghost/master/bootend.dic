@@ -46,7 +46,7 @@ OnFirstBoot
 		//In Notepad++ with C language, you'll also notice that this dialogue is black instead of grey. This is because of the use of the backwards slash as mentioned in the advanced section of the SakuraScripting page. Do you see near the bottom where it has \n\n[half]/ with the other slash at the end before the choices are listed? You will want to replace dialogue up that \n\n[half], but do not mess with the choices beyond that unless you know what you're doing.
 		//Always make sure to keep your dialogue in the quotation marks! And remember, you can't use quotation marks IN dialogue either. You can use two single apostrophes instead if you must. And REMEMBER what I said about \![enter,passivemode]! Do NOT delete that tag! \![raise,OnFirstBoot,0]
 		
-		"\![enter,passivemode]\0\s[31]\w8\w8\w8\w8\w8\w8\w8\w8\w8\s[34]Oh hey there. \w8\w6\s[52]Nice place you have. \w8\w6\s[13]I'm Macaque. \w8\w4\s[9]Actually, \w2Six-Eared Macaque is, \w2\s[14]yunno, \w2\s[8]my full name. \w8\w4\s[14]And you are?\![open,inputbox,OnNameTeach,-1]\e"
+		"\![enter,passivemode]\0\s[63]\w8\w8\w8\w8\w8\w8\w8\w8\w8\w8\w8\w3What do we have here? \w8\w6\i[5]\w4\s[32]Nice place you have. \w8\w6\s[13]I'm Macaque. \w8\w4\s[9]Actually, \w2Six-Eared Macaque is, \w2\s[14]yunno,\n\w2\s[8]my full name. \w8\w4\s[14]And you are?\![open,inputbox,OnNameTeach,-1]\e"
 		--
 		NameInput
 		
@@ -68,7 +68,7 @@ OnFirstBoot
  	{
 		//---- This is dialogue for when the user uninstalls the ghost for whatever reason, then reinstalls them again. They will run this dialogue instead of their normal dialogue above. You can change this to reflect the fact the user's uninstalled your ghost once, or you can make it the same as the above, it's up to you. You'll see this if you try to run OnFirstBoot using ![raise] without the extra 0 as mentioned above.
  		{
- 		"\![enter,passivemode]\0\s[31]\w8\w8\w8\w8\w8\w8\w8\w8\f[sub,true]...wasn't I here before?.....\w8\w8\w8\w8\w8\w8\w8\w8\c\s[34]Oh hey there. \w8\w6\s[33]Nice place you have. \w8\w4\s[13]I'm Macaque. \w8\w4\s[9]Actually, \w2Six-Eared Macaque is, \w2\s[14]yunno, \w2\s[8]my full name. \w8\w4\s[14]And you are?\![leave,passivemode]\e"
+ 		"\![enter,passivemode]\0\s[63]\w8\w8\w8\w8\w8\w8\w8\w8\w8\w8\w8\w3What do we have here? \w8\w6\i[5]\w4\s[32]Nice place you have. \w8\w4\s[35]Familiar, even\w5.\w5.\w5. \w8\w8\w4\s[13]I'm Macaque. \w8\w4\s[9]Actually, \w2Six-Eared Macaque is, \w2\s[14]yunno, \w2\s[8]my full name. \w8\w4\s[14]And you are?\![open,inputbox,OnNameTeach,-1]\e"
 		}
  	}
 }
@@ -218,7 +218,7 @@ OnBoot
 	if monkeywatch == 1
 	{"\0\s[56]\1\s[10]"}
 	else
-	{"\0\%(idleposechange)\1\s[10]\e"}
+	{"\0\%(idleposechange)\1\s[10]"}
 	
 	--
 	
@@ -239,7 +239,7 @@ OnBoot
 	}
 	else
 	{
-		"%(normalboottalk)" //If none of the days above match the current date, the ghost instead will go down to the next function, normalboottalk.
+		"%(normalboottalks)" //If none of the days above match the current date, the ghost instead will go down to the next function, normalboottalk.
 	}
 }
 
@@ -247,73 +247,73 @@ OnBoot
 //--normalboottalk
 
 
-normalboottalk
+normalboottalks
 {
 	if weekday == 6 && hour >= 19 //This checks if the weekday equals six, meaning saturday AND (using the && operator) if the hour is past 19. You can change these numbers or values to anything you like! As such you can check any combination of date and day and time for potential boot dialogue. You can also add more elseif checks for other days if you want.
-		{
-		"\0\s[4]What do we have here? \w8\w5\s[29]My favourite human! \w8\w6\i[6]Well, \w4\s[14]maybe second favourite. \w8\w4\s[8]\i[6]Or third. \w8\w4\s[2]Heya.\e"
-		}
+	{
+			"\0\s[4]What do we have here? \w8\w5\s[29]My favourite human! \w8\w6\i[6]Well, \w4\s[14]maybe second favourite. \w8\w4\s[8]\i[6]Or third. \w8\w4\s[2]Heya.\e"
+	}
 	elseif RAND(100) < 65 //What this does is choose a random number from 1-100, and then checks if that number is less than 40. If it's less than forty, then these dialogue pieces will occur. Remember, you can have multiple lines of dialogue within one set of brackets like this! You just need to make sure they're all enclosed in their own set of quotation marks.
-		{
-		"\0\s[13]Yo, \w3\s[14]howsit going?\e"
-	
-		"\0\s[33]You again? \w8\w4\s[2]You must be my biggest fan.\e"
-	
-		"\0\s[9]Macaque, \w6\s[14]\i[6]the one and only, \w6\s[3]at your service.\e"
-	
-		"\0\s[3]Missed me?\e"
-	
-		"\0\s[32]You've been busy, \w4huh?\e"
-	
-		"\0\s[20]I hope I'm not interrupting.\e"
-		}
+	{
+			"\0\s[13]Yo, \w3\s[14]howsit going?\e"
+		
+			"\0\s[33]You again? \w8\w4\s[2]You must be my biggest fan.\e"
+		
+			"\0\s[9]Macaque, \w6\s[14]\i[6]the one and only, \w6\s[3]at your service.\e"
+		
+			"\0\s[3]Missed me?\e"
+		
+			"\0\s[32]You've been busy, \w4huh?\e"
+		
+			"\0\s[20]I hope I'm not interrupting.\e"
+	}
  	else
  	{
 		//The following if statements check the time of the day as defined above in the GetTimeSlot function. Do you remember the names that it defined? Now we're going to use them!
 		
 		if timeslot == "earlymorning" //The following dialogue will be called if they are booted during the time specified in GetTimeSlot (in this case, the hour being more than/equal to 5 but less than/equal to 8). Remember, you can add as many lines of dialogue here as you want, or take away as many as you want! Replace the dialogue here with what you see fit.
 		{
-		"\0\s[1]Ah- \w8\w3\s[30]Must we do this so early, \w4\s[28]%(username)?\e"
+			"\0\s[1]Ah- \w8\w3\s[30]Must we do this so early, \w4\s[28]%(username)?\e"
+			
+			"\0\s[27]You're one early bird. \w8\w6\s[16]I'm not an early bird myself. \w8\w4\s[16]\i[6]Or an early monkey.\e"
 		
-		"\0\s[27]You're one early bird. \w8\w6\s[16]I'm not an early bird myself. \w8\w4\s[16]\i[6]Or an early monkey.\e"
-		
-	//	"\0\s[10]This is the third early morning boot dialogue.\w8\0\s[0]Between the hours of five and eight.\e"
+		//	"\0\s[10]This is the third early morning boot dialogue.\w8\0\s[0]Between the hours of five and eight.\e"
 		}
 		elseif timeslot == "morning"
 		{
-		"\0\s[0]Morning. \w8\w8\s[28]Not my time of day, \w4\s[13]but we'll get there.\e"
+			"\0\s[0]Morning. \w8\w8\s[28]Not my time of day, \w4\s[13]but we'll get there.\e"
 		
 		//"\1\s[10]This is another morning boot dialogue.\w8\0\s[0]Yup.\e"
 		}
 		elseif timeslot == "lunch"
 		{
-		"\0\s[13]%(username)! \w8\w6\s[3]Missed me?\e"
-		"\0\s[9]It's me, \w6\s[13]Macaque.\e"
+			"\0\s[13]%(username)! \w8\w6\s[3]Missed me?\e"
+			"\0\s[9]It's me, \w6\s[13]Macaque.\e"
 		
 		//"\1\s[10]This is another lunch boot dialogue.\e"
 		}
 		elseif timeslot == "afternoon"
 		{
-		"\0\s[20]Hey there. \w8\w6\s[19]Time to make this day more fun.\e"
+			"\0\s[20]Hey there. \w8\w6\s[19]Time to make this day more fun.\e"
 		}
 		elseif timeslot == "evening"
 		{
  		
- 		"\0\s[46]Hey there. \w8\w6\s[18]Up for some mischief?\e"
+			"\0\s[46]Hey there. \w8\w6\s[18]Up for some mischief?\e"
 		}
 		elseif timeslot == "latenight"
 		{
- 		"\0\s[32]Ah, \w5night, \w5\s[3]my domain.\e"
-		
- 		"\0\s[13]Great time to call me, \w4pal, \w6\s[29]the sun is down and the shadows are plenty. \w8\w8\w2\s[20]And I am fresh from a nap.\e"
+			"\0\s[32]Ah, \w5night, \w5\s[3]my domain.\e"
+			
+			"\0\s[13]Great time to call me, \w4pal, \w6\s[29]the sun is down and the shadows are plenty. \w8\w8\w2\s[20]And I am fresh from a nap.\e"
 		}
 		else //the last timeslot we haven't done is midnight, which is what's under here.
 		{
 		//"\0\s[0]This is a middle of the night boot dialogue.\1\w8\s[10]From midnight to five.\e"
-		
- 		"\0\s[2]At this time of day, \w5\s[3]the only creatures that still up are demons\w3.\w3.\w3. \w8\w8\w2\s[14]and you, \w4it seems.\e"
-		
- 		"\0\s[5]I like darkness, \w5\s[19]\i[6]it's kind of my whole thing, \w5\s[46]but it's late even for me, \w3bud.\e"
+			
+			"\0\s[2]At this time of day, \w5\s[3]the only creatures that still up are demons\w3.\w3.\w3. \w8\w8\w2\s[14]and you, \w4it seems.\e"
+			
+			"\0\s[5]I like darkness, \w5\s[19]\i[6]it's kind of my whole thing, \w5\s[46]but it's late even for me, \w3bud.\e"
 		}
 	}
 }
@@ -329,13 +329,21 @@ OnClose
  {
 	if passmin >= 5 || passhour > 0	//This checks to see if you've had them open for at least five minutes.
 		{
-			if RAND(100) < 45 //see above about the random number generator
+			if RAND(100) < 65 //see above about the random number generator
 			{
 				"\0\s[13]I'm off to do some \w3\s[3]\f[italic,true]scheming.\f[italic,false]\w8"
 				
 				"\0\s[14]See you around, \w3kiddo.\w8"
 				
 				"\0\s[50]Cya.\w8"
+				
+				"\0\s[65]Cya.\w8\w8\w8\w8"
+				
+				"\0\s[64]Bye then.\s[65]\w8\w8\w8\w8"
+				
+				"\0\s[64]I'll be off then.\s[65]\w8\w8\w8\w8"
+				
+				"\0\s[64]Watch your\s[65] back.\w8\w8\w8\w8"
 			}
 			else
 			{
@@ -343,7 +351,7 @@ OnClose
 				{
 					"\0\s[31]Sun's coming up. \w8\w6\s[50]Time for this monkey to hide away and wait for the \s[3]perfect time to strike.\w8"
 					
-					"\0\s[8]Good timing, \w3bud. \w8\w4\s[40]Cya.\w8"
+					"\0\s[8]Good timing, \w3bud. \w8\w4\s[65]Cya.\w8\w8\w8\w8"
 				}
 			elseif timeslot == "morning"
  				{
@@ -353,23 +361,31 @@ OnClose
  				{
  					"\0\s[4]I'll be off then. \w8\w6\s[40]Bye, \w3human.\w8"
 					
+					"\0\s[4]Until next time, \w3human. \w8\w5\s[64]Or not. \w8\w5Who knows.\s[65]\w8\w8\w8\w8"
+					
  					//"\0\s[0]This is another lunch close dialogue.\w8\1\s[10]In the middle of the day.\w8"
  				}
  			elseif timeslot == "afternoon"
  				{
  					"\0\s[20]Time to wreak havoc back home. \w8\w4\s[19]\i[6]It's been fun, \w3%(username).\w8"
 					
+					"\0\s[65]Later.\w8\w8\w8\w8"
+					
  					//"\1\s[10]This is another afternoon close dialogue.\w8\0\s[0]Yup.\w8"
  				}
   			elseif timeslot == "evening"
  				{
  					"\0\s[20]Time to wreak havoc back home. \w8\w4\s[19]\i[6]It's been fun, \w3dude.\w8"
+					
+					"\0\s[65]B\w1y\w1e\w1e\w1e\w1e.\w8\w8\w8\w8"
  				}
 			elseif timeslot == "latenight"
 			 	{
  					"\0\s[9]It's Macaque time. \w8\w4\s[40]Cya around, \w3bud.\w8"
 					
 					"\0\s[1]\i[5]*You tell him good night.\n\n[half]\w8\w5\s[50]Buddy, \w3\s[4]I'm more awake at night than ever. \w8\w5\s[52]\i[6]See you.\w8"
+					
+					"\0\s[64]Back to the\s[65] shadows.\w8\w8\w8\w8"
  				}
 			else //like above, this is the midnight time slot since it's the last one left.
  				{
@@ -382,6 +398,8 @@ OnClose
 						"\0\s[53]\i[6]Time to get back to mischief. \w8\w5\s[52]Cya, \w3buddy.\w8"
 						
 						"\0\s[13]You're heading to sleep? \w8\w5\s[26]Night, \w4dude.\w8"
+						
+						"\0\s[65]Night.\w8\w8\w8\w8"
 				}
 			}
 				
@@ -475,9 +493,9 @@ OnGhostChanged
 
 OnShellChanging
  {
-	if reference0 == "Hypothetical Shell that doesn't actually exist" //reference0 in OnShellChanging is the name of the shell you're swapping to. It should be defined in the descript.txt file in your shell folder. If you do have alternate shells, put in the right name here.
+	if reference0 == "Six Eared Macaque" //reference0 in OnShellChanging is the name of the shell you're swapping to. It should be defined in the descript.txt file in your shell folder. If you do have alternate shells, put in the right name here.
 	{
-	"\1\s[10]This dialogue is specifically for changing to this particular shell.\w8\0\w8\s[9]It totally exists.\w8\e"
+		"\0\s[50]\i[6]Fine, \w4fine, \w3I'll show you\w3.\w3.\w3.\w8\e"
 	//Then rewrite this line as appropriate.
 	}
 	else //if you don't have any specific dialogue for a specific shell
@@ -504,13 +522,13 @@ OnShellChanged
  		"\0\s[13]\i[6]Back to normal. \w8\w4\s[14]Well, \w3\s[19]\i[6]my kind of normal.\e"
 		//Replace dialogue as required.
  	}
- 	elseif reference0 == "Hypothetical Shell that doesn't actually exist" //You can use as many elseifs for as many shells as you've got.
+ 	elseif reference0 == "Six Eared Macaque" //You can use as many elseifs for as many shells as you've got.
  	{
- 		nowshell = "totallyrealshell"
+ 		nowshell = "Six Eared Macaque"
 		
- 		"\0\s[0]This dialogue is for switching to that hypothetical shell.\e"
+ 		"\0\s[41]There. \w8\w6\s[19]Now I can eavesdrop more efficiently.\e"
 		
- 		"\0\s[0]This is another bit of dialogue for switching to this hypothetical shell.\w8\1\s[18]Man if you actually use this, you should tell Zar, it'll blow her mind.\w8\0\n\n[half]\s[9]Shut up, we're not supposed to be in-character here.\e"
+ 		//"\0\s[0]This is another bit of dialogue for switching to this hypothetical shell.\w8\1\s[18]Man if you actually use this, you should tell Zar, it'll blow her mind.\w8\0\n\n[half]\s[9]Shut up, we're not supposed to be in-character here.\e"
 		//Replace these bits with whatever you have in mind.
  	}
  	elseif reference0 == "Another totally real shell wow"

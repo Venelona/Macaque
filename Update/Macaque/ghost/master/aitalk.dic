@@ -38,13 +38,33 @@ RandomTalk : nonoverlap_pool
 {
 	if monkeywatch == 0
 	{
-		if monkeymood > 70 && frenpoints > 100
+		if monkeymood > 0 && frenpoints > 100
 		{
 			"\0\s[7]\i[5]*He seems relaxed.\e"
 			
-			"\0\s[8]\i[5]\i[6]*He enjoying his time here.\e"
+			"\0\s[8]\i[5]\i[6]*He's enjoying his time here.\e"
 			
 			"\0\s[7]Remember to take breaks, \w3dude.\e"
+		}
+		if monkeymood > 15 && frenpoints > 100
+		{
+			"\0\s[46]\i[5]*He seems upbeat.\s[46]\e"
+			
+			"\0\s[7]\i[5]*He seems relaxed.\e"
+			
+			"\0\s[8]\i[5]\i[6]*He's enjoying his time here.\e"
+			
+			"\0\s[7]Remember to take breaks, \w3dude.\e"
+		}
+		if patme > 50 && patme < 200 && monkeymood > 0
+		{
+			"\0\s[11]\i[5]\i[6]*He's cautiously wondering if you'll pet him again.\e"
+			
+			"\0\s[38]I'm watching your hands, \w3kiddo.\e"
+			
+			"\0\s[36]\i[5]*He's wondering what would make you want to pet him in the first place.\s[36]\e"
+			
+			"\0\s[11]\i[5]\i[6]*He's thinking about pets.\e"
 		}
 		if patme > 200 && monkeymood > 0
 		{
@@ -112,12 +132,14 @@ RandomTalk : nonoverlap_pool
 			//"\0\s[0]This will lead to the second piece of chained dialogue.\w8\1\s[10]This will have another chain attached to it.\e:chain=anotherchain"
 		
 		
-			if nowshell == "other" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
+			if nowshell == "Six Eared Macaque" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
 			{
 			//Then these conversations are available! Note the brackets enclosing this set of dialogue.
-			"\0\s[0]Here is dialogue related to the default shell.\w8\1\s[10]You can use this to comment on clothing your ghost is wearing.\e"
+			"\0\s[54]You still can't touch my ears, \w4buddy.\e"
 		
-			"\0\s[0]Here is more dialogue related to the default shell.\e"
+			"\0\s[30]\i[5]\i[6]*He's embarrassed that you wanted him to show his ears.\e"
+		
+			"\0\s[27]\i[5]*He's listening.\e"
 			}
 			
 			//month dialogue (turned off)

@@ -1,15 +1,15 @@
 developer_options.txtabe155229c2a4c19f45f89820f641afesize=138date=2023-04-02T18:48:35charset=windows-1251
 ghost/master/Macicon.ico905b70cb574d22b8308bf56f1a2165afsize=1150date=2023-05-14T18:22:00
-ghost/master/aitalk.dicc36dca37d7921a578c0e380bc28c847esize=38329date=2023-05-18T19:15:19
+ghost/master/aitalk.dic9ad3d8c53509130b89243ccaee617229size=38932date=2023-05-19T00:54:48
 ghost/master/anchor.dic8a4f82ac7b47bb7ede6b046ae940cb3bsize=5178date=2021-12-12T15:05:56
-ghost/master/bootend.dic9c7b60df263900266859e49d96885a74size=27530date=2023-05-18T18:48:56
+ghost/master/bootend.dicba756f6e174f465d30de41dbe377889fsize=27990date=2023-05-19T00:51:46
 ghost/master/commu.dic1f30b0144a12c26122252f8e40ce1b8esize=7018date=2023-05-17T21:45:57
 ghost/master/descript.txte0b612fc2e12f200a1b27da8d542a2e1size=2615date=2023-05-17T20:04:01
 ghost/master/etc.dicc127d0e10bc2c40aef497e05f1597432size=36597date=2023-05-17T21:35:45
-ghost/master/menu.dic002664298c700207e2ee4dc48a27153esize=56015date=2023-05-18T19:35:22
-ghost/master/mouse.dica32b39185396ad81c081dc4fb7b2640dsize=19450date=2023-05-18T16:14:32
+ghost/master/menu.dicd95008b44e2d22ec64d8b8b2adc4fb73size=57559date=2023-05-19T01:13:32
+ghost/master/mouse.dic23c893d8eb98abdedebc887bf36b14basize=20852date=2023-05-18T20:07:53
 ghost/master/nameteach.dic2a1ce295fb4ec24f41f236deaf43e51asize=9735date=2023-05-16T23:54:30
-ghost/master/string.dic559280d5118a02536ad1900e27f12352size=7996date=2023-05-18T19:43:27
+ghost/master/string.dic28147ca16d8b849b29e40af165409839size=7995date=2023-05-18T19:51:07
 ghost/master/system/messagetxt/classical-chinese.txt82769639cb6060591d0797126ac5efabsize=5129date=2021-12-21T16:54:01
 ghost/master/system/messagetxt/english.txt5a11530a72b2e815b677c19dbd3fac03size=7112date=2021-12-21T16:54:01
 ghost/master/system/messagetxt/japanese.txted859fd30c66d2ad612c56ebe66324d2size=9190date=2021-12-21T16:54:02
@@ -24,9 +24,9 @@ ghost/master/yaya.txt33faaf947bc4ec60a7f3ee511d362009size=1489date=2021-12-12
 ghost/master/yaya_config.txt134ca91eba1f7864526eaa3a2142dd20size=3920date=2017-03-18T10:07:23
 install.txtb6265dc9ae114e96fa094b7be70f96d4size=915date=2023-05-17T19:39:01
 readme.txtcb99fc08c0d9c07dc5f8bd98ea908d3bsize=2351date=2023-05-17T19:48:42
-shell/Macaque/descript.txt1d4451cc8b1ad2542860fbee3606dce1size=5479date=2023-05-17T19:54:27
+shell/Macaque/descript.txtd41d8cd98f00b204e9800998ecf8427esize=5479date=2023-05-17T19:54:27
 shell/Macaque/menu_background.pngf24d64cbd67fc0764f0984c3b889192dsize=39363date=2023-05-14T18:41:23
-shell/Macaque/menu_foreground.png3b308a66a76c9039f1260c7e766e24c5size=21712date=2023-05-14T18:06:38
+shell/Macaque/menu_foreground.png708cfe99ae74832f7ae1a2910042e6edsize=21712date=2023-05-14T18:06:38
 shell/Macaque/menu_sidebar.png4d814ef79b2e93c51f22e05c63cc72e1size=5491date=2023-05-14T18:16:42
 shell/Macaque/read me.txt6856fd1ab7cfd307653af0e350898708size=2064date=2020-11-07T11:22:18
 shell/Macaque/surface0.png050a40ca921d93189717c1b2b8540edcsize=40615date=2023-05-12T18:23:51
@@ -65,7 +65,7 @@ shell/Macaque/surface1031.pngb7be0601bc1f66eee40a1eca6150c177size=1460date=20
 shell/Macaque/surface1032.png5e1ca69f62b2ffd00de69d7ea5e80f21size=42478date=2023-05-14T20:11:39
 shell/Macaque/surface1033.pngf940524eb7bf8db72c4b406bc22bbc4asize=1243date=2023-05-14T20:12:31
 shell/Macaque/surface1034.pngab475a37579071f7fa562b08a019b925size=1068date=2023-05-14T20:12:38
-shell/Macaque/surface1035.pnge9c1caa4832bea68f4d02e1a57a93f2esize=1844date=2023-05-14T20:25:28
+shell/Macaque/surface1035.pngd41d8cd98f00b204e9800998ecf8427esize=1844date=2023-05-14T20:25:28
 shell/Macaque/surface1036.pngec88259f64927240200d2931eb76b2d2size=1889date=2023-05-14T20:25:35
 shell/Macaque/surface1037.pngea6704932264b7aa5c25d03a9c6a0de4size=39419date=2023-05-14T20:31:33
 shell/Macaque/surface1038.pnge32474f0d7ad18e0de5c3632a1c2eb31size=46178date=2023-05-14T20:39:00
@@ -97,7 +97,7 @@ shell/Macaque/surface1063.png8145ade69673bd3ccf3186791a9c0642size=1074date=20
 shell/Macaque/surface1064.png952f1468ac7e07a643740f3fe91e29cbsize=1374date=2023-05-14T22:34:30
 shell/Macaque/surface1065.png5b7766c116fd85014949d822d298553fsize=42075date=2023-05-14T22:40:06
 shell/Macaque/surface1066.png941a519bae4f65bac8de3bbc455ed18fsize=48510date=2023-05-14T23:04:15
-shell/Macaque/surface1067.png0ac84652fc2e2809218712c60d7d5970size=50526date=2023-05-14T23:04:01
+shell/Macaque/surface1067.pngce80f3d735592ff2b64c768ce1c5f96fsize=50526date=2023-05-14T23:04:01
 shell/Macaque/surface1068.pngd106de1fa91bda343e32814e87bb7395size=999date=2023-05-14T22:58:19
 shell/Macaque/surface1069.png8e9eb46067e285fd7f3a3239d5e7867asize=1410date=2023-05-14T22:58:27
 shell/Macaque/surface1070.png181c4080f499788b4c0f742b022b1361size=847date=2023-05-14T22:58:40
@@ -156,7 +156,7 @@ shell/Macaque/surface1122.png64b2107a185c4486259a327c624ed4dasize=1312date=20
 shell/Macaque/surface1123.pngc32d25350a1284b08e658ba503f13df8size=39818date=2023-05-16T20:49:30
 shell/Macaque/surface1124.pnge145b5ea5a0259342e5f1736f720d294size=43891date=2023-05-16T20:49:43
 shell/Macaque/surface1125.png37b618b9daf7717ce28651b2c3ea0ee7size=41014date=2023-05-16T20:49:52
-shell/Macaque/surface1126.png1c3abdbcb336d320d9540ea8589ddf52size=44872date=2023-05-17T17:55:35
+shell/Macaque/surface1126.pngd41d8cd98f00b204e9800998ecf8427esize=44872date=2023-05-17T17:55:35
 shell/Macaque/surface1127.pngbffc704074b08757080609b70d4ab79asize=19517date=2023-05-18T02:59:27
 shell/Macaque/surface1128.png9d8f052a8178326621bbb7334259ddfbsize=23178date=2023-05-18T03:32:18
 shell/Macaque/surface1129.png92f33cb0e7c1c69554625403d2599d32size=22345date=2023-05-18T03:06:49
@@ -180,10 +180,10 @@ shell/Macaque/surface1146.pngfe344fda072ce7516b1028a78927c96csize=26676date=2
 shell/Macaque/surface1147.png3291e2b88e8858eb97bf42691749981esize=29867date=2023-05-18T14:21:15
 shell/Macaque/surface1148.png769b1dcb7b0495abb6e10f272250bea7size=734date=2023-05-18T14:22:01
 shell/Macaque/surface1149.png906f2d50295a76fd0599686dd2fbf8e3size=910date=2023-05-18T14:22:07
-shell/Macaque/surface1150.png53a9367bcfbb758d2a8cf4f170d04f13size=987date=2023-05-18T14:22:19
+shell/Macaque/surface1150.png0fef1af31c3f921ef15ef417e1d9ddebsize=987date=2023-05-18T14:22:19
 shell/Macaque/surface1151.pngaddc23013c029a66be7d24a59e178af3size=1103date=2023-05-18T14:23:07
 shell/Macaque/surface1152.png99adc256b269d09468522eab758290ecsize=25834date=2023-05-18T14:30:57
-shell/Macaque/surface1153.pngaa0728399e85b249a041928a2368fc31size=26151date=2023-05-18T14:31:09
+shell/Macaque/surface1153.pngd41d8cd98f00b204e9800998ecf8427esize=26151date=2023-05-18T14:31:09
 shell/Macaque/surface1154.pngcc1c404c61e20ce67d495057523efc94size=26253date=2023-05-18T14:31:23
 shell/Macaque/surface1155.png8b2fc537361b863cb8901f41d600bfb9size=26756date=2023-05-18T14:31:40
 shell/Macaque/surface1156.png5798d15e7784580e871838b0fb339a9csize=28933date=2023-05-18T14:36:21
@@ -209,7 +209,269 @@ shell/Macaque/surface1175.pngbd6217e6027a2809b50da8f1d0ab358bsize=27303date=2
 shell/Macaque/surface1176.png1bc4eaafbf5bb98ddd905bb81841a1b5size=26482date=2023-05-18T15:10:28
 shell/Macaque/surface1177.png3cd4668e04c0d1feb095ee3f55cd8537size=25226date=2023-05-18T15:10:49
 shell/Macaque/surface1178.png9d8f052a8178326621bbb7334259ddfbsize=23178date=2023-05-18T15:10:56
-shell/Macaque/surfaces.txt173006723162db54530153271b91d5ecsize=84446date=2023-05-18T16:39:05
+shell/Macaque/surface1179.png13d24a08077f8960816e16737bb167d6size=969date=2023-05-18T21:27:55
+shell/Macaque/surface1180.png08a38efa04dd830d7391981dd9b16b4fsize=2767date=2023-05-18T21:28:06
+shell/Macaque/surface1181.png075f8d473a7dec198916610377892710size=3579date=2023-05-18T21:28:13
+shell/Macaque/surface1182.png95c408f4a4874ee261f93f34beb67677size=4007date=2023-05-18T21:28:19
+shell/Macaque/surface1183.pngec5bd9d253ade273517c61768daab22dsize=5857date=2023-05-18T21:28:25
+shell/Macaque/surface1184.pngf1b4572487de05c35164aee628b190dcsize=10744date=2023-05-18T21:28:31
+shell/Macaque/surface1185.png0cb021c1cd5683b70c585df331cdc12bsize=14383date=2023-05-18T21:28:36
+shell/Macaque/surface1186.pnga88687843526e314aa2aac660818ed15size=18056date=2023-05-18T21:28:43
+shell/Macaque/surface1187.png50255ce20fa9b6dd4ac577b7fdade72bsize=21763date=2023-05-18T21:28:48
+shell/Macaque/surface1188.png90941eda03d30b526cbcf8c2e0088bf4size=22954date=2023-05-18T21:28:55
+shell/Macaque/surface1189.pnge8c927b1c962abc297ba532c8da5912esize=25558date=2023-05-18T21:29:01
+shell/Macaque/surface1190.pngb9a77e47ddb052ac9d99b37ac2617893size=28990date=2023-05-18T21:29:09
+shell/Macaque/surface1191.pngcd6040ed28b9bc7d2bea30dffb8a1fafsize=29390date=2023-05-18T21:29:16
+shell/Macaque/surface1192.png5973b474a9e426649c9d3b4c175c5ac0size=31569date=2023-05-18T21:29:25
+shell/Macaque/surface1193.pngd32c4f54a279c95927e3c3f9f801a083size=31943date=2023-05-18T21:29:32
+shell/Macaque/surface1194.png8c2297285ca03536d293300c085e0608size=31199date=2023-05-18T21:29:37
+shell/Macaque/surface1195.pngcc1d808e1fbfb5acfa21940a38dacbccsize=39152date=2023-05-18T21:30:27
+shell/Macaque/surface1196.pngbc265950162d3409b438f71657941d60size=40732date=2023-05-18T21:31:25
+shell/Macaque/surface1197.pngda28828dcb426b9351388c71f2c6fe97size=39749date=2023-05-18T21:40:49
+shell/Macaque/surface1198.png73c4014baf126f6ba72c6a7518c8f859size=59029date=2023-05-18T21:44:31
+shell/Macaque/surface1199.png5a0500951d106cce8e781250727b58absize=1014date=2023-05-18T21:50:43
+shell/Macaque/surface1200.png1cf836f94b11804ba7e10726b50c5fa3size=1016date=2023-05-18T21:50:51
+shell/Macaque/surface1201.png5813c1911a8672b1670361be024dca93size=43474date=2023-05-18T22:32:24
+shell/Macaque/surface1202.png1fc7c8c7aba3ca8688123a05b39044b3size=46062date=2023-05-18T22:32:34
+shell/Macaque/surface1203.png5b524c5f9a59eae8f7cf22e26f7f3c02size=47470date=2023-05-18T22:32:41
+shell/Macaque/surface1204.pnga43b4249028dc6417de3aac2600b8b5bsize=49428date=2023-05-18T22:32:47
+shell/Macaque/surface1205.pngd5b1e32ac29bfd7474940351b2a5df6asize=46857date=2023-05-18T22:32:58
+shell/Macaque/surface1206.pnga3dfba031532ca252a4fa1ef27c40564size=41207date=2023-05-18T22:33:10
+shell/Macaque/surface1207.png4cd33711f6abedafa81c714d7625715dsize=22391date=2023-05-18T22:42:01
+shell/Macaque/surface1208.png26516156d822df51aac4a8bfd666cb0fsize=12126date=2023-05-18T22:33:26
+shell/Macaque/surface1209.png21de3242ee4c1124dee8c4e57539c144size=8940date=2023-05-18T22:33:32
+shell/Macaque/surface1210.pngc3948d73254cb9b76189cc24841d78e0size=8336date=2023-05-18T22:33:48
+shell/Macaque/surface1211.png689de935a792f829f073f4cb15b9a599size=7252date=2023-05-18T22:33:53
+shell/Macaque/surface1212.png4d74e783c0b61ad1d2ef30eec61ebd85size=5161date=2023-05-18T22:33:58
+shell/Macaque/surface1213.png51c725fcb47e815e0361e425c01d0346size=2863date=2023-05-18T22:34:03
+shell/Macaque/surface1214.png7fbaa653f41acb553ef0fa1b459db0dfsize=1497date=2023-05-18T22:34:09
+shell/Macaque/surface1215.pnged1c17ec42fe444b758c3ee1f5b267c4size=678date=2023-05-18T22:34:14
+shell/Macaque/surfaces.txt21840c2d800efc37798d915e39d01161size=87132date=2023-05-18T22:41:17
 shell/Macaque/surfacetable.txt1ddc38e7c9929111cabec32e28d3e5basize=3037date=2021-05-05T12:09:39
 shell/Macaque/thumbnail.pngb340fd16c4d0473efee991b0315e5790size=77879date=2023-05-17T22:02:42
+shell/Six Eared Macaque/descript.txtc4cf1710a66a0463493c7efafc8d9e39size=5489date=2023-05-19T00:34:31
+shell/Six Eared Macaque/menu_background.pngd1952362a7b9c4e059f95de4620e4b78size=39388date=2023-05-19T01:10:35
+shell/Six Eared Macaque/menu_foreground.png3b308a66a76c9039f1260c7e766e24c5size=21712date=2023-05-14T18:06:38
+shell/Six Eared Macaque/menu_sidebar.png4d814ef79b2e93c51f22e05c63cc72e1size=5491date=2023-05-14T18:16:42
+shell/Six Eared Macaque/read me.txt6856fd1ab7cfd307653af0e350898708size=2064date=2020-11-07T11:22:18
+shell/Six Eared Macaque/surface0.pngc0221eacb1917cb084b25f71318458d1size=42599date=2023-05-18T23:37:33
+shell/Six Eared Macaque/surface10.png5a08ef6fb39dc5179b40962e4d19ddbbsize=280date=2023-05-14T18:16:50
+shell/Six Eared Macaque/surface1001.pngba9059da6f1b5292892277ace6a4e214size=1107date=2023-05-12T18:33:09
+shell/Six Eared Macaque/surface1002.pngc50237127d0a842753f4eb19c6bd03a9size=1405date=2023-05-12T18:33:17
+shell/Six Eared Macaque/surface1003.pngeb12222c094068dd7139f47e4ba0e368size=883date=2023-05-12T18:33:26
+shell/Six Eared Macaque/surface1004.pngedd074f8e1b846c6192a4223f0746b46size=928date=2023-05-14T22:36:56
+shell/Six Eared Macaque/surface1005.pngc7376d824500506166c01f0406e06900size=1539date=2023-05-12T18:39:55
+shell/Six Eared Macaque/surface1006.pngd852680ceab66e08489f4334e4e4e770size=1153date=2023-05-12T18:41:44
+shell/Six Eared Macaque/surface1007.png091bde13df212efbb20c049c72dfa15esize=777date=2023-05-12T18:44:38
+shell/Six Eared Macaque/surface1008.png391caaf2762a408595d435ee7a476ef1size=737date=2023-05-12T18:48:37
+shell/Six Eared Macaque/surface1009.png5be9ecbd6627d26ebb52e6e63ddd0cdesize=42611date=2023-05-18T23:37:24
+shell/Six Eared Macaque/surface1010.png1a8a266989900e06bfdf89957759ffdbsize=42703date=2023-05-18T23:37:40
+shell/Six Eared Macaque/surface1011.pnge0b848e4212929c9cc0791d6becde239size=1456date=2023-05-12T19:03:06
+shell/Six Eared Macaque/surface1012.png699a455aca9d353893668a01ebec67afsize=1513date=2023-05-12T19:04:34
+shell/Six Eared Macaque/surface1013.pngd41d8cd98f00b204e9800998ecf8427esize=42257date=2023-05-18T23:43:27
+shell/Six Eared Macaque/surface1014.pngb003efcdb382cdcaa996c26b792dea58size=1051date=2023-05-12T23:38:03
+shell/Six Eared Macaque/surface1015.png203fda6e343b816c643af631a309774csize=1388date=2023-05-12T23:37:56
+shell/Six Eared Macaque/surface1016.pngace97c52b294d8495279cdfe079a2c61size=1442date=2023-05-12T23:37:01
+shell/Six Eared Macaque/surface1017.png3feef00f0192d3335eb484f7f1d95ed5size=1543date=2023-05-12T23:37:14
+shell/Six Eared Macaque/surface1018.png0caec794999cdb4951d07d9d1dee0919size=1268date=2023-05-12T23:37:43
+shell/Six Eared Macaque/surface1019.png919619dd929658ceb75460d7cd83e02bsize=1320date=2023-05-12T23:41:28
+shell/Six Eared Macaque/surface1020.png9b2e72388ed0aad3aa6e84d773cb6a85size=42137date=2023-05-18T23:43:33
+shell/Six Eared Macaque/surface1021.png64ff238793969b3d245bc5b30b55c900size=1437date=2023-05-12T23:44:57
+shell/Six Eared Macaque/surface1022.pngacf83b734f78220e7468aed066e14b39size=48435date=2023-05-18T23:45:36
+shell/Six Eared Macaque/surface1023.pnga718d15f747911ce7a38a91329393d9bsize=1224date=2023-05-13T02:04:52
+shell/Six Eared Macaque/surface1024.png861f2e2f4ed8c400bde058b61e9a25bbsize=1582date=2023-05-13T02:04:46
+shell/Six Eared Macaque/surface1025.png7742824e47b6422e6bf0eff44a9d394asize=961date=2023-05-13T02:05:07
+shell/Six Eared Macaque/surface1026.png907473147cdf1e9145aa4b416e73c84csize=1631date=2023-05-13T02:05:59
+shell/Six Eared Macaque/surface1027.png408faab7dcd3d53aa58bce41b7e516f3size=50213date=2023-05-18T23:47:09
+shell/Six Eared Macaque/surface1028.png33c22d6fc3646635cd5e926edffec770size=51543date=2023-05-18T23:47:20
+shell/Six Eared Macaque/surface1029.png97056131bfff9d8fe67e5607bea7f82dsize=41516date=2023-05-18T23:37:59
+shell/Six Eared Macaque/surface1030.png7d107444bffa3649c5ecfe4f962a7745size=1327date=2023-05-14T19:36:03
+shell/Six Eared Macaque/surface1031.pngb7be0601bc1f66eee40a1eca6150c177size=1460date=2023-05-14T19:36:28
+shell/Six Eared Macaque/surface1032.pngfa44012c0e8f54725c9a7334ad43c7aesize=44400date=2023-05-18T23:38:06
+shell/Six Eared Macaque/surface1033.pngf940524eb7bf8db72c4b406bc22bbc4asize=1243date=2023-05-14T20:12:31
+shell/Six Eared Macaque/surface1034.pngab475a37579071f7fa562b08a019b925size=1068date=2023-05-14T20:12:38
+shell/Six Eared Macaque/surface1035.pnge9c1caa4832bea68f4d02e1a57a93f2esize=1844date=2023-05-14T20:25:28
+shell/Six Eared Macaque/surface1036.pngec88259f64927240200d2931eb76b2d2size=1889date=2023-05-14T20:25:35
+shell/Six Eared Macaque/surface1037.png82c35a245022c8ac113191f739553a61size=41402date=2023-05-18T23:47:52
+shell/Six Eared Macaque/surface1038.png43e5daf817e84d75194357da0d4377fcsize=47727date=2023-05-18T23:48:02
+shell/Six Eared Macaque/surface1039.png153a986d9f7ba6c896f257ca553fe0ebsize=1000date=2023-05-14T20:41:19
+shell/Six Eared Macaque/surface1040.png92878f38094a43c28bc43e90a2f922a6size=1314date=2023-05-14T20:41:24
+shell/Six Eared Macaque/surface1041.png42e73093f8d69fc7ce59dade268d77casize=926date=2023-05-14T20:48:54
+shell/Six Eared Macaque/surface1042.pnga24b85c27bb6efed78de47e6bfbb9780size=901date=2023-05-14T20:48:24
+shell/Six Eared Macaque/surface1043.pngc43ccaf9319ebbff0d3cdb157daa1fe1size=44440date=2023-05-18T23:48:17
+shell/Six Eared Macaque/surface1044.png82ccf51e9dd7435aff701c5805d89148size=45698date=2023-05-18T23:48:26
+shell/Six Eared Macaque/surface1045.pnge4e05aaf8b8cf9f508d69f9c64e0bce9size=50837date=2023-05-18T23:48:38
+shell/Six Eared Macaque/surface1046.png669754912155d0a4ade36587e3396f81size=50876date=2023-05-18T23:48:41
+shell/Six Eared Macaque/surface1047.png2f2487e98710206c58e0f8ab207dc481size=1072date=2023-05-14T21:35:57
+shell/Six Eared Macaque/surface1048.png0bb157a0c27ecb1041540e084c4cce67size=1416date=2023-05-14T21:36:04
+shell/Six Eared Macaque/surface1049.pngd92c953ff6ca3913c04787386ceb1ce7size=998date=2023-05-14T21:36:12
+shell/Six Eared Macaque/surface1050.png4ed5f5174717d38f98bf1a910a3da609size=1016date=2023-05-14T21:38:57
+shell/Six Eared Macaque/surface1051.png3ebf862cdb1bac2d7ada5ed55cf38100size=47741date=2023-05-18T23:48:50
+shell/Six Eared Macaque/surface1052.png6a6474dcf8c1d62ff4227b6463e7be5csize=48318date=2023-05-18T23:48:55
+shell/Six Eared Macaque/surface1053.png9215af5d8764b14ecbdae1e6808ec5e0size=1023date=2023-05-14T22:13:57
+shell/Six Eared Macaque/surface1054.png02a13f3ac2ae833444aaa78e3a8cee19size=1367date=2023-05-14T22:14:03
+shell/Six Eared Macaque/surface1055.png29111d14e60f8d936373fd78e3f492f7size=798date=2023-05-14T22:22:50
+shell/Six Eared Macaque/surface1056.png94510c60e30fa774aeafd9a2f27aeaa1size=1080date=2023-05-14T22:24:09
+shell/Six Eared Macaque/surface1057.pngd41d8cd98f00b204e9800998ecf8427esize=51429date=2023-05-18T23:49:02
+shell/Six Eared Macaque/surface1058.png64a473225cf2c7fbf375905387f27b22size=48098date=2023-05-18T23:49:06
+shell/Six Eared Macaque/surface1059.pnge6d42782679b88dc7b206aac095929e7size=51208date=2023-05-18T23:49:09
+shell/Six Eared Macaque/surface1060.pngbf482e9dce0354d38349a103d6d51ee2size=1642date=2023-05-14T22:27:08
+shell/Six Eared Macaque/surface1061.png757d607947b150eaa78184d587a5472dsize=1633date=2023-05-14T22:27:48
+shell/Six Eared Macaque/surface1062.pngf0aa9b22f87b0e4173a69985d96299fbsize=41378date=2023-05-18T23:49:35
+shell/Six Eared Macaque/surface1063.png8145ade69673bd3ccf3186791a9c0642size=1074date=2023-05-14T22:34:19
+shell/Six Eared Macaque/surface1064.png952f1468ac7e07a643740f3fe91e29cbsize=1374date=2023-05-14T22:34:30
+shell/Six Eared Macaque/surface1065.pnge5ac0becc568115773a75acfd870628fsize=44030date=2023-05-18T23:49:42
+shell/Six Eared Macaque/surface1066.png18eb025355e94555b556ae9edfedfa46size=49879date=2023-05-18T23:49:59
+shell/Six Eared Macaque/surface1067.pngd4a090dc5f5be06595355300d2a294f9size=51899date=2023-05-18T23:50:08
+shell/Six Eared Macaque/surface1068.pngd106de1fa91bda343e32814e87bb7395size=999date=2023-05-14T22:58:19
+shell/Six Eared Macaque/surface1069.png8e9eb46067e285fd7f3a3239d5e7867asize=1410date=2023-05-14T22:58:27
+shell/Six Eared Macaque/surface1070.png181c4080f499788b4c0f742b022b1361size=847date=2023-05-14T22:58:40
+shell/Six Eared Macaque/surface1071.png5c0891f1bed5296a66f698dd4a677394size=893date=2023-05-14T23:01:50
+shell/Six Eared Macaque/surface1072.pnge55184a3595ca78f8aee7cd1479f03ffsize=52263date=2023-05-18T23:50:12
+shell/Six Eared Macaque/surface1073.png03047a81b25d534cdcb2e16a0857d45asize=41423date=2023-05-18T23:50:28
+shell/Six Eared Macaque/surface1074.pngf3fa4eb582bd3a4e84728afa90cee131size=45444date=2023-05-18T23:50:37
+shell/Six Eared Macaque/surface1075.png400d209a7a341f407ed69a412e54a340size=45552date=2023-05-18T23:50:46
+shell/Six Eared Macaque/surface1076.png04045785a0b66afb01215676e56caf56size=44068date=2023-05-18T23:50:53
+shell/Six Eared Macaque/surface1077.png3845dcd870bd239a37bd534b50d7879asize=45764date=2023-05-18T23:55:21
+shell/Six Eared Macaque/surface1078.pngec3748cd9721b18516f95cb5c1018866size=997date=2023-05-15T00:36:08
+shell/Six Eared Macaque/surface1079.pngd41d8cd98f00b204e9800998ecf8427esize=1283date=2023-05-15T00:36:13
+shell/Six Eared Macaque/surface1080.png450df23ea5737b40b6ac1164b07f7bd5size=1117date=2023-05-15T00:36:22
+shell/Six Eared Macaque/surface1081.png0b6dadae8053576e37d0954d42fbad4esize=1115date=2023-05-15T00:42:53
+shell/Six Eared Macaque/surface1082.pngd41d8cd98f00b204e9800998ecf8427esize=45786date=2023-05-18T23:55:24
+shell/Six Eared Macaque/surface1083.png8f62ebf5235748731ce4de237cc63d34size=534date=2023-05-15T00:38:46
+shell/Six Eared Macaque/surface1084.pngd746005944dd0f739087114c4bae7478size=742date=2023-05-15T00:38:54
+shell/Six Eared Macaque/surface1085.png159544926e2fdc27c0dd7ce47641896asize=45791date=2023-05-18T23:55:28
+shell/Six Eared Macaque/surface1086.pngf38b5831bb78a5e2405c5735cd0905cesize=45601date=2023-05-18T23:55:32
+shell/Six Eared Macaque/surface1087.png3b53f9f7e6aabed6970faa62c3bae688size=983date=2023-05-15T00:59:11
+shell/Six Eared Macaque/surface1088.png09c812bdce7170524b22e103493fa5d0size=1327date=2023-05-15T00:59:18
+shell/Six Eared Macaque/surface1089.png5ed942c296cc7937ab0843d2ddb68999size=787date=2023-05-15T00:59:27
+shell/Six Eared Macaque/surface1090.pngc9b2b7de13639fbc8c20ec2bf9620650size=817date=2023-05-15T00:59:35
+shell/Six Eared Macaque/surface1091.png5ffe151a0338c2de42583abb49ebba7dsize=45624date=2023-05-18T23:55:35
+shell/Six Eared Macaque/surface1092.png66d59f472b5054dea26a4aecbc16ebf7size=966date=2023-05-15T01:06:49
+shell/Six Eared Macaque/surface1093.png45c7288cf99c7ea2eab6864706c9f034size=1271date=2023-05-15T01:06:54
+shell/Six Eared Macaque/surface1094.pngfa24f7dedae6d0965358ba4126b99aa4size=45667date=2023-05-18T23:57:52
+shell/Six Eared Macaque/surface1095.png0a04fc417d1f2c1d9c7ab4fb0d70f8d5size=45669date=2023-05-18T23:58:01
+shell/Six Eared Macaque/surface1096.png43c77131c489209e38d522fe59df2651size=828date=2023-05-15T01:22:29
+shell/Six Eared Macaque/surface1097.png1b7615d68bc9e7da93bef5dd75782accsize=824date=2023-05-15T01:22:35
+shell/Six Eared Macaque/surface1098.png466e399a2e2d36551d45d4331d5bf142size=45712date=2023-05-18T23:58:09
+shell/Six Eared Macaque/surface1099.png755f3d16553420165d6c5ea294e5081asize=960date=2023-05-15T01:42:41
+shell/Six Eared Macaque/surface1100.png7dc76abc86a9e3103490cb7deeabc99dsize=1243date=2023-05-15T01:42:51
+shell/Six Eared Macaque/surface1101.png024329002f6cb026d1cffa9dabdf2ec6size=2677date=2014-11-13T07:01:01
+shell/Six Eared Macaque/surface1102.png19f8aee616bae415fa8527953d1aeb77size=2733date=2014-11-13T07:00:44
+shell/Six Eared Macaque/surface1103.pnge767bb1edb46fd1b5592ad1be586ec2asize=45718date=2023-05-18T23:58:17
+shell/Six Eared Macaque/surface1104.png2728b574b4af7b587cbbcd6a5296b409size=1006date=2023-05-15T23:29:44
+shell/Six Eared Macaque/surface1105.png1a0c2a4354d34fe8997b08d1d3a5e620size=1344date=2023-05-15T23:29:51
+shell/Six Eared Macaque/surface1106.png859d55d94ee98598c18ec9eb0d3ac422size=969date=2023-05-15T23:29:56
+shell/Six Eared Macaque/surface1107.pngdee671e56d1177dd68532f8996cc7ccesize=832date=2023-05-15T23:30:01
+shell/Six Eared Macaque/surface1108.png2491dbddefca65733214528094b402c6size=45772date=2023-05-18T23:58:25
+shell/Six Eared Macaque/surface1109.png87e7c44a0c4272c00cfb8cbef7aa7cf5size=45852date=2023-05-18T23:58:32
+shell/Six Eared Macaque/surface1110.pngeeb301755b97bf982313012ddefdc003size=44091date=2023-05-18T23:59:03
+shell/Six Eared Macaque/surface1111.png000d44b6890981b6de80bfff89b91e5esize=45455date=2023-05-18T23:59:34
+shell/Six Eared Macaque/surface1112.png3032b99819fcbb6b6c45942e62f0e41csize=42622date=2023-05-18T23:59:41
+shell/Six Eared Macaque/surface1113.png3a11cfea1d7027f5e7eb57cc81600588size=42596date=2023-05-18T23:59:47
+shell/Six Eared Macaque/surface1114.png3a3b3c3c5b0c6a276acb4cb9ef610a87size=52344date=2023-05-19T00:00:17
+shell/Six Eared Macaque/surface1115.png32f74a0945db62f7ddf4cd4cc4863cd7size=50287date=2023-05-19T00:00:21
+shell/Six Eared Macaque/surface1116.png14254175304fa325373b37b9edb0be9dsize=1148date=2023-05-16T00:34:59
+shell/Six Eared Macaque/surface1117.png0ab9f12b10e9127a47d7298672512fe9size=1484date=2023-05-16T00:35:05
+shell/Six Eared Macaque/surface1118.pngf730163c259da0a0f10497219e6b277esize=41436date=2023-05-19T00:00:32
+shell/Six Eared Macaque/surface1119.pngcae815b85146f6af26d476bf8cb813dfsize=44051date=2023-05-19T00:00:40
+shell/Six Eared Macaque/surface1120.png1b9d672e3d70abef3866e61f636dd030size=44434date=2023-05-19T00:00:47
+shell/Six Eared Macaque/surface1121.png6be8e271934768c8ec0199bfa616bb99size=1621date=2023-05-16T20:41:02
+shell/Six Eared Macaque/surface1122.png64b2107a185c4486259a327c624ed4dasize=1312date=2023-05-16T20:47:19
+shell/Six Eared Macaque/surface1123.png654af6409314186f4e6d99afab95563csize=41781date=2023-05-19T00:00:54
+shell/Six Eared Macaque/surface1124.pngeb4189157e3e3bb66e2968cde9a8a73bsize=45803date=2023-05-19T00:01:01
+shell/Six Eared Macaque/surface1125.pngf622a61e8dc692a12851c3bac3b60a24size=42966date=2023-05-19T00:01:08
+shell/Six Eared Macaque/surface1126.pnge82c3c59e547c35f71debda567fa9b05size=45880date=2023-05-19T00:01:48
+shell/Six Eared Macaque/surface1127.png1a76dbcf74f72c75d8ae70bb1b28baeesize=22345date=2023-05-19T00:15:14
+shell/Six Eared Macaque/surface1128.pngf176e99038aa960d763766230a5fd9bbsize=26032date=2023-05-19T00:15:18
+shell/Six Eared Macaque/surface1129.png2e18402c3791263ea744e4c9c729dbb6size=25186date=2023-05-19T00:15:22
+shell/Six Eared Macaque/surface1130.png5272b8d5a60d79e9a3bee78db003675asize=25521date=2023-05-19T00:15:26
+shell/Six Eared Macaque/surface1131.pngf790314e05b3b002cdc62e38f02fe788size=25653date=2023-05-19T00:15:29
+shell/Six Eared Macaque/surface1132.png6c8a9548c4ec424ec215cdea230a7d0csize=25505date=2023-05-19T00:15:33
+shell/Six Eared Macaque/surface1133.png8d8e251764506d4bd0d9d4970d3fe0acsize=25683date=2023-05-19T00:15:37
+shell/Six Eared Macaque/surface1134.png442db8f5b0718896f0bb8db03e4d6f3bsize=25619date=2023-05-19T00:15:41
+shell/Six Eared Macaque/surface1135.pngcdc3ee47038fe497ce7581e42c5aa6ffsize=26050date=2023-05-19T00:15:46
+shell/Six Eared Macaque/surface1136.png09866dcada28cb227911cbc56a350749size=28167date=2023-05-19T00:38:34
+shell/Six Eared Macaque/surface1137.pngb944a25ce4cb9d82a748184754b3f430size=27658date=2023-05-19T00:16:50
+shell/Six Eared Macaque/surface1138.pnge7cc41990f5ce7be6f6609384278e501size=27959date=2023-05-19T00:38:44
+shell/Six Eared Macaque/surface1139.png8a4d14787681f52d59e3b922eebf5f19size=29242date=2023-05-19T00:16:17
+shell/Six Eared Macaque/surface1140.png6ec26c2198c6c517ac154e6c7449a3ddsize=31735date=2023-05-19T00:39:23
+shell/Six Eared Macaque/surface1141.png1f272b2861d33f330025a597c6c2687bsize=31400date=2023-05-19T00:39:33
+shell/Six Eared Macaque/surface1142.pngbd63b9bf77c1033537bdcc3ea197e9efsize=28304date=2023-05-19T00:17:29
+shell/Six Eared Macaque/surface1143.png7dde098f9c371eaeb11cd808416d6154size=28829date=2023-05-19T00:18:14
+shell/Six Eared Macaque/surface1144.pngec44605b6d0caa71e7f24d249ab38db3size=28851date=2023-05-19T00:18:17
+shell/Six Eared Macaque/surface1145.pngc694b87f34e9a6304d931748b94aceecsize=29302date=2023-05-19T00:18:20
+shell/Six Eared Macaque/surface1146.png76de11acdea6e6d64acfdd832b51de85size=27983date=2023-05-19T00:24:31
+shell/Six Eared Macaque/surface1147.png7510f09e73e5b4b5a2b800449a58bef0size=31229date=2023-05-19T00:24:52
+shell/Six Eared Macaque/surface1148.png769b1dcb7b0495abb6e10f272250bea7size=734date=2023-05-18T14:22:01
+shell/Six Eared Macaque/surface1149.png906f2d50295a76fd0599686dd2fbf8e3size=910date=2023-05-18T14:22:07
+shell/Six Eared Macaque/surface1150.png53a9367bcfbb758d2a8cf4f170d04f13size=987date=2023-05-18T14:22:19
+shell/Six Eared Macaque/surface1151.png73ae8dc0e35734511730db5f3311491dsize=1103date=2023-05-18T14:23:07
+shell/Six Eared Macaque/surface1152.pngaa8b4b693c2319aac721580432a1821dsize=27108date=2023-05-19T00:24:54
+shell/Six Eared Macaque/surface1153.png815f7899d2128f77fdf19056c3666c35size=27455date=2023-05-19T00:24:58
+shell/Six Eared Macaque/surface1154.png24f22c5402c1f312a9879b478789ccbasize=27545date=2023-05-19T00:25:02
+shell/Six Eared Macaque/surface1155.png785e1b47c7b3f6fcfd60455d81cde25bsize=28001date=2023-05-19T00:25:05
+shell/Six Eared Macaque/surface1156.png5543e973f882e1412d48d2f39d12914asize=30242date=2023-05-19T00:25:07
+shell/Six Eared Macaque/surface1157.pnga90f7e3756d6e2cfa563e2e39d500fcdsize=30744date=2023-05-19T00:25:10
+shell/Six Eared Macaque/surface1158.pnge234c44a1713262cb2fad2cb9e575f06size=30761date=2023-05-19T00:25:12
+shell/Six Eared Macaque/surface1159.pnga930959adb4aa4143359ec4e53222869size=31247date=2023-05-19T00:25:15
+shell/Six Eared Macaque/surface1160.pngb6541f10a33eb4d6cee6c50cb7c36ceasize=27880date=2023-05-19T00:25:19
+shell/Six Eared Macaque/surface1161.pngf1a456b459c6aa836f3314b2221beba3size=31126date=2023-05-19T00:25:22
+shell/Six Eared Macaque/surface1162.pngd2685db2af60f7b65c1ea76257abcfdasize=900date=2023-05-18T14:57:10
+shell/Six Eared Macaque/surface1163.png36f110f801d495efd7d8c09b9a408a20size=716date=2023-05-18T14:57:17
+shell/Six Eared Macaque/surface1164.pnga6b21b1560ea354cb3230b7ef803130dsize=27000date=2023-05-19T00:25:24
+shell/Six Eared Macaque/surface1165.png2466d4e734f30ae0706be0aafdbcfb1bsize=27346date=2023-05-19T00:25:28
+shell/Six Eared Macaque/surface1166.pngf565e938d5dc699dd64c0026748dc432size=27429date=2023-05-19T00:25:32
+shell/Six Eared Macaque/surface1167.pngd147d6d3299e64a36472aa403cf9a182size=27905date=2023-05-19T00:25:35
+shell/Six Eared Macaque/surface1168.pnga4f5ab1c6b51357f513257bda337c19bsize=30130date=2023-05-19T00:25:39
+shell/Six Eared Macaque/surface1169.png6627b1b9575645818c2f6885c416e5b3size=30627date=2023-05-19T00:25:42
+shell/Six Eared Macaque/surface1170.png22a42fbfc57746109f30c4289024a1b3size=30643date=2023-05-19T00:25:45
+shell/Six Eared Macaque/surface1171.pngd43523b656bc9575b9d49fa40ec6cb3asize=31147date=2023-05-19T00:25:48
+shell/Six Eared Macaque/surface1172.pnge1196d68f6be5ecd3700b3b85b8fd91csize=31388date=2023-05-19T00:18:49
+shell/Six Eared Macaque/surface1173.pngc270e0d231eef7e618c48ea0e55d4aa8size=30655date=2023-05-19T00:19:06
+shell/Six Eared Macaque/surface1174.png40da9386264e7c64910230d2a226075esize=29904date=2023-05-19T00:19:15
+shell/Six Eared Macaque/surface1175.png691d3d1b750704f8767e941c3866ed87size=30013date=2023-05-19T00:19:23
+shell/Six Eared Macaque/surface1176.pngc68c13693f47fbc34b418abb1d83cfd8size=29206date=2023-05-19T00:19:28
+shell/Six Eared Macaque/surface1177.png16cd3cdefbb1af5ac695408394e361fdsize=28032date=2023-05-19T00:19:32
+shell/Six Eared Macaque/surface1178.png0337675663e3d7ef3dc83d7b6b98d258size=26110date=2023-05-19T00:19:35
+shell/Six Eared Macaque/surface1179.png13d24a08077f8960816e16737bb167d6size=969date=2023-05-18T21:27:55
+shell/Six Eared Macaque/surface1180.png08a38efa04dd830d7391981dd9b16b4fsize=2767date=2023-05-18T21:28:06
+shell/Six Eared Macaque/surface1181.png075f8d473a7dec198916610377892710size=3579date=2023-05-18T21:28:13
+shell/Six Eared Macaque/surface1182.pngc13d5e471e7ea8bfdec3f8a4d135d742size=4007date=2023-05-18T21:28:19
+shell/Six Eared Macaque/surface1183.pngec5bd9d253ade273517c61768daab22dsize=5857date=2023-05-18T21:28:25
+shell/Six Eared Macaque/surface1184.pngf1b4572487de05c35164aee628b190dcsize=10744date=2023-05-18T21:28:31
+shell/Six Eared Macaque/surface1185.png0cb021c1cd5683b70c585df331cdc12bsize=14383date=2023-05-18T21:28:36
+shell/Six Eared Macaque/surface1186.pngd41d8cd98f00b204e9800998ecf8427esize=18056date=2023-05-18T21:28:43
+shell/Six Eared Macaque/surface1187.png50255ce20fa9b6dd4ac577b7fdade72bsize=21763date=2023-05-18T21:28:48
+shell/Six Eared Macaque/surface1188.pngf64d7c44f1463798e67475a9fd1c1210size=22954date=2023-05-18T21:28:55
+shell/Six Eared Macaque/surface1189.pnge8c927b1c962abc297ba532c8da5912esize=25558date=2023-05-18T21:29:01
+shell/Six Eared Macaque/surface1190.pngb9a77e47ddb052ac9d99b37ac2617893size=28990date=2023-05-18T21:29:09
+shell/Six Eared Macaque/surface1191.pngcd6040ed28b9bc7d2bea30dffb8a1fafsize=29390date=2023-05-18T21:29:16
+shell/Six Eared Macaque/surface1192.png5973b474a9e426649c9d3b4c175c5ac0size=31569date=2023-05-18T21:29:25
+shell/Six Eared Macaque/surface1193.pngd32c4f54a279c95927e3c3f9f801a083size=31943date=2023-05-18T21:29:32
+shell/Six Eared Macaque/surface1194.png8c2297285ca03536d293300c085e0608size=31199date=2023-05-18T21:29:37
+shell/Six Eared Macaque/surface1195.pngcc1d808e1fbfb5acfa21940a38dacbccsize=39152date=2023-05-18T21:30:27
+shell/Six Eared Macaque/surface1196.pngbc265950162d3409b438f71657941d60size=40732date=2023-05-18T21:31:25
+shell/Six Eared Macaque/surface1197.pngda28828dcb426b9351388c71f2c6fe97size=39749date=2023-05-18T21:40:49
+shell/Six Eared Macaque/surface1198.png73c4014baf126f6ba72c6a7518c8f859size=59029date=2023-05-18T21:44:31
+shell/Six Eared Macaque/surface1199.png5a0500951d106cce8e781250727b58absize=1014date=2023-05-18T21:50:43
+shell/Six Eared Macaque/surface1200.png1cf836f94b11804ba7e10726b50c5fa3size=1016date=2023-05-18T21:50:51
+shell/Six Eared Macaque/surface1201.png3400a9bc08f781066232f91d5c6b040fsize=45388date=2023-05-19T00:26:19
+shell/Six Eared Macaque/surface1202.png0ebe59d36709f316acd9567832a72ce2size=48007date=2023-05-19T00:26:27
+shell/Six Eared Macaque/surface1203.png041462acbe38f450e1cb30e8d06ade87size=49425date=2023-05-19T00:26:36
+shell/Six Eared Macaque/surface1204.png81ccdeb6d5a75e9424dfad0755d03aebsize=51385date=2023-05-19T00:26:42
+shell/Six Eared Macaque/surface1205.png7279de47cdff510eb5f1131f0f00aadfsize=48692date=2023-05-19T00:27:55
+shell/Six Eared Macaque/surface1206.pnga0ad5a32456bc51d0e2795dedcb63806size=42077date=2023-05-19T00:28:10
+shell/Six Eared Macaque/surface1207.png16daa0279dd2215c7517ea24da03480bsize=23456date=2023-05-19T00:28:23
+shell/Six Eared Macaque/surface1208.png26516156d822df51aac4a8bfd666cb0fsize=12126date=2023-05-18T22:33:26
+shell/Six Eared Macaque/surface1209.png21de3242ee4c1124dee8c4e57539c144size=8940date=2023-05-18T22:33:32
+shell/Six Eared Macaque/surface1210.pngc3948d73254cb9b76189cc24841d78e0size=8336date=2023-05-18T22:33:48
+shell/Six Eared Macaque/surface1211.pnga95cb5e9837ec2b691bffdf8b60bb26dsize=7252date=2023-05-18T22:33:53
+shell/Six Eared Macaque/surface1212.png4d74e783c0b61ad1d2ef30eec61ebd85size=5161date=2023-05-18T22:33:58
+shell/Six Eared Macaque/surface1213.png51c725fcb47e815e0361e425c01d0346size=2863date=2023-05-18T22:34:03
+shell/Six Eared Macaque/surface1214.pnge153ebe116945b1246ae60cae27abfa5size=1497date=2023-05-18T22:34:09
+shell/Six Eared Macaque/surface1215.pnged1c17ec42fe444b758c3ee1f5b267c4size=678date=2023-05-18T22:34:14
+shell/Six Eared Macaque/surfaces.txt21840c2d800efc37798d915e39d01161size=87132date=2023-05-18T22:41:17
+shell/Six Eared Macaque/surfacetable.txt558a6c5e707203cbdcaa0903e8e76b6fsize=3037date=2021-05-05T12:09:39
+shell/Six Eared Macaque/thumbnail.pngb8aedefc63650fdc675b46d992cb045asize=91279date=2023-05-19T01:09:51
 thumbnail.pngb340fd16c4d0473efee991b0315e5790size=77879date=2023-05-17T22:02:42
