@@ -1,0 +1,1085 @@
+﻿//---------------------------Menus--------------------------
+
+//--OpenSakuraMenu
+//This is a bit of intro dialogue before the main character opens their menu. You can see below that there are three pieces of separate dialogue listed before it goes to MenuRun. The character will randomly choose one of those pieces of dialogue before opening the rest of their menu. You can customize this with individual greetings for the character, such as "Yes, %(username)?" or "Need something, %(username)?" or things like that. Note that none of the lines end with \e!
+//The \b2 tag tells the ghost to use their big balloon for this dialogue. If your menu has a lot of stuff, this'll probably look better than the small one.
+//If you don't want multiple responses before opening the menu, you can delete the dialogue and just leave MenuRun.
+
+OpenSakuraMenu
+{
+	if monkeywatch == 0
+	{
+		"\b2Yeah?"
+		"\b2What?"
+		"\b2Yeah yeah."
+		"\b2Hm?"
+		"\0\s[53]\b2Sup?"
+		"\b2What is it?"
+		--
+		MenuRun
+	}
+	else
+	{
+		"\0\s[58]\b2Yeah?"
+		"\b2What?"
+		"\b2Yeah yeah."
+		"\0\s[60]\b2Hm?"
+		"\0\s[58]\b2Sup?"
+		"\b2What is it?"
+		--
+		MenuRun
+	}
+}
+
+//--MenuRun
+//As you just saw above. This actually fills out the rest of the menu. If you're going to be adding or changing functions, this is where you'll be doing your edits.
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+	//These four statements basically get the day of the week, whether it's AM or PM, the hour, and the time. It's putting together the information to display the time at the bottom of the balloon. Pay it no mind.
+	--
+	"\n\n\_q\b2" //The \n\n means two new lines as detailed in the walkthrough, and \_q means quick session, meaning all the text from this point on will display instantly instead of a few letters at a time like normal ghost dialogue.
+	--
+	if monkeywatch == 0
+	{
+		if lastTalk != "" //What this does is check to see if the ghost has already said a random bit of dialogue on its own, essentially by seeing if the lastTalk thing is NOT empty (!= means "does not equal").
+		{
+		  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n\n[half]"
+		  //If the ghost has said something, it will then display this menu option. You can replace "Repeat Last Dialogue" with whatever caption you like, such as "What were you saying?" or "What did you say?" or "Could you repeat that?" or something like that.
+		  
+		  //*********************Advanced User Info*******************************
+		  //These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+		  
+		  //I briefly touched in bootend.dic about \q, but I'll again cover it here. Pay very close attention to how this bit of dialogue is formatted. You'll see it goes \![*]\q[Displayed Name,linkedfunction]. Breaking it down, \![*] puts the balloon's option icon in front of the choice (usually a > or something), \q sets up the choice, Displayed Name which is the text that will display in the ghost's balloon, then linkedfunction, which is what the choice is linked to when the user clicks it. As you go through this file, look at how every menu option is set up, and you will see they all follow this format, give or take a \![*]. If you're going to be adding new options to menus or creating your own functions and such, make sure you follow this format and learn it well. Make sure to read the coding page of the walkthrough.
+		  //***********************************************************************
+		}
+		--
+		"\![*]\q[Say something,OnAiTalk]\n\n\n"
+		//"\![*]\q[Say something 2,OnAiTalk]\n"
+		
+		//This option will force the ghost to say something from aitalk if the user clicks it. Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. IF you don't want two options for captions, delete one of the lines.
+		//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, as long as you separate it from the other options into its own section with two dashes above and below.
+		--
+		"You can...\n\n[half]\![*]\q[Talk,talkstuff]\n/
+		\![*]\q[Interact,interactstuff]\n\n"
+		--
+		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n/
+		\![*]\q[Run errands,dosomething]\n\n/
+		\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+		
+		//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.
+	}
+	else
+	{
+		
+		if lastTalk != "" //What this does is check to see if the ghost has already said a random bit of dialogue on its own, essentially by seeing if the lastTalk thing is NOT empty (!= means "does not equal").
+		{
+		  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n\n[half]"
+		  //If the ghost has said something, it will then display this menu option. You can replace "Repeat Last Dialogue" with whatever caption you like, such as "What were you saying?" or "What did you say?" or "Could you repeat that?" or something like that.
+		  
+		  //*********************Advanced User Info*******************************
+		  //These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+		  
+		  //I briefly touched in bootend.dic about \q, but I'll again cover it here. Pay very close attention to how this bit of dialogue is formatted. You'll see it goes \![*]\q[Displayed Name,linkedfunction]. Breaking it down, \![*] puts the balloon's option icon in front of the choice (usually a > or something), \q sets up the choice, Displayed Name which is the text that will display in the ghost's balloon, then linkedfunction, which is what the choice is linked to when the user clicks it. As you go through this file, look at how every menu option is set up, and you will see they all follow this format, give or take a \![*]. If you're going to be adding new options to menus or creating your own functions and such, make sure you follow this format and learn it well. Make sure to read the coding page of the walkthrough.
+		  //***********************************************************************
+		}
+		--
+		"\![*]\q[Say something,OnAiTalk]\n\n"
+	
+		--
+		"You can...\n\n[half]\![*]\q[Stand up,macwatchover]\n\n\n[half]"
+		--
+		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n\n[half]/
+		\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+		
+		//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.
+	}
+}
+
+//Leave this alone
+OnLastTalk 
+{
+"%(lastTalk)\e"
+}
+
+//This is figuring out what day of the week it is. Leave it alone.
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+//This is finding out whether it's AM or PM. Leave it alone.
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+ 		{"AM"}
+ 	else
+ 		{"PM"}
+}
+
+nowhour
+{
+	if hour12 == 0; "1"
+	else; "%(hour12)"
+}
+
+nowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+
+//If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
+//Advanced users, note that this is formatted as Select.linkedfunction? Remember how it went \q[Displayed Name,linkedfunction] above? When a user clicks an option that doesn't begin with On, they'll be linked to Select.linkedfunction. Pay close attention as we go through and you'll see this in action.
+
+Select.BACKTOMENU
+	{
+		MenuRun
+	}
+
+//If someone selects configmenu, this will lead to TalkConfig.
+Select.configmenu
+	{
+		TalkConfig
+	}
+
+//*********************Advanced User Info*******************************
+//Some of you may be wondering why some of these Select.options lead to another function. Why not just put the config menu coding under Select.configmenu, instead of linking to TalkConfig?
+//Basically any function that's preceded with Select. is limited in its complexity and can only be called within its own .dic file in my experience. Why should you care, you ask? Well, if you're going to link to this function any other way, such as linking it in other .dic files or as a page in a menu, it needs to be a stand-alone function so it can be properly called. I'm pretty sure.
+//The basic jist is this; if you're going to reuse whatever it is the option leads to, you should make it its own function. Otherwise, you can leave it in Select.option. As a rule of thumb I'd probably put any complicated stuff in its own function, then use the Select.option to call the full function as you can see above. Simple dialogue responses to a choice can stay as a Select.option though (Like "Do you like going to raves and partying? Yes/No"). Study what stays as a Select.option and what links to another Function as we go through the file.
+//***********************************************************************
+
+//--TalkConfig
+//This menu allows the user to change their name and other information, as well as put in their birthday and change how often the ghost speaks. You can restructure how this looks if you want, but it's perfectly functional as is. You can of course change the dialogue though if you like.
+
+TalkConfig
+{
+	"\0\b[2]\_q\" 
+	//This bit of dialogue sets up a large balloon and a quick session, like above, so all the text will appear immediately. The rest is formatted to display the information and options to change it. I wouldn't touch any of it if you don't know what you're doing.
+	//I'll briefly explain the font tags I used here. \f[bold,1] turns bold on, \f[bold,0] turns it off, not unlike a <b> tag. \f[sup,1] turns superscript on (making it tiny and above the text) and \f[sup,0] turns it off. I touch on these tags in the walkthrough on SakuraScript.
+	--
+	"f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n\n"
+	//--
+	//"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n"
+	--
+	"You pet him on the head %(patme) times.\n\n"
+	//--
+	//"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n"
+	--
+	if frenpoints >= 30 && frenpoints < 60
+	{
+		"He's assessing you.\n\n"
+	}
+	elseif frenpoints >= 60 && frenpoints < 110
+	{
+		"He is wary of you.\n\n"
+	}
+	elseif frenpoints >= 110 && frenpoints < 200
+	{
+		"He thinks you're weird.\n\n"
+	}
+	elseif frenpoints >= 200 && frenpoints < 300
+	{
+		"He likes you, but won't admit it.\n\n"
+	}
+	elseif frenpoints >= 300 && frenpoints < 500
+	{
+		"He may trust you. Just a bit.\n\n"
+	}
+	elseif frenpoints >= 500 && frenpoints < 800
+	{
+		"He trusts you.\n\n"
+	}
+	elseif frenpoints >= 1000
+	{
+		"You're his favourite mortal.\n\n"
+	}
+	else
+	{
+		if firstchoice == 1
+		{
+			"He thinks you're an odd mortal.\n\n"
+		}
+		elseif firstchoice == 2
+		{
+			"He thinks you're just like any other mortal. Not in a flattering way.\n\n"
+		}
+		
+		elseif firstchoice == 3
+		{
+			"He thinks you're weird.\n\n"
+		}
+		else
+		{
+			"He finds you kinda amusing.\n\n"
+		}
+	}
+	--
+	if monkeymood >= 20 && monkeymood < 30
+	{
+		"He seems chill.\n\n"
+	}
+	elseif monkeymood >= 30 && monkeymood < 40
+	{
+		"He's a bit bored.\n\n"
+	}
+	elseif monkeymood >= 40 && monkeymood < 80
+	{
+		"He's relaxed.\n\n"
+	}
+	elseif monkeymood >= 80  && monkeymood < 120
+	{
+		"He's made himself comfortable.\n\n"
+	}
+	elseif monkeymood >= 120
+	{
+		"He's enjoying his time.\n\n"
+	}
+	elseif monkeymood <= -20 && monkeymood > -50
+	{
+		"He's on edge.\n\n"
+	}
+	elseif monkeymood <= -50 && monkeymood > -200
+	{
+		"He's gloomy.\n\n"
+	}
+	elseif monkeymood <= -200 && monkeymood > -500
+	{
+		"He's unhappy.\n\n"
+	}
+	elseif monkeymood <= -500
+	{
+		"He's pissed off.\n\n"
+	}
+	else
+		"He's in a neutral mood.\n\n"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	//--		
+	//	{
+		//"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+		//}
+	--
+	if timecheckers == 1
+	{
+		"Do you want Macaque to announce time every hour? Right now you do.\f[sup,1](\q[Change it,clockchangerooni1])\f[sup,0]\n\n"
+	}
+	else
+	{
+		"Do you want Macaque to announce time every hour? Right now you don't.\f[sup,1](\q[Change it,clockchangerooni2])\f[sup,0]\n\n"
+	}
+	--
+	" \f[sup,5]Do you want to reset?(\q[Reset,resetmac])\f[sup,0]\n\n"
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+//This and the next few set up the pronouns, as you can see by the linkedfunction names. You can replace "\0\s[0]What pronouns do you want?" with your own dialogue if you prefer, but leave the rest of it alone.
+
+Select.TEACHPRONOUN
+{
+	if monkeywatch == 1
+	{
+		"\i[5]*Maybe you can do it when he is not sitting down.\w8\w4\n\n\_q"
+		--
+		"\![*]\q[Go back,TalkConfig]\n/
+		\![*]\q[I'll do it later,CANCEL]\e"
+	}
+	else
+	{
+		"\0\s[0]What pronouns do you want?\w5\n\n[half]\_q/
+			\![*]\q[He-His-Him,choicemasc]\n/
+			\![*]\q[She-Her-Her,choicefem]\n/	
+			\![*]\q[They-Their-Them,choiceneither]\e"
+	}
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	hesshes = "he's"
+	--
+	"\0\s[0]Sure thing, dude.\e"
+	//Leave the part above the double dashes alone. You can replace the snip of dialogue however with whatever you like.
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	hesshes = "she's"
+	--
+	"\0\s[0]Alright then. I hope you won't mind me still calling you dude, dude.\e"
+	//as above, you can also replace this dialogue.
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	hesshes = "they're"
+	--
+	"\0\s[0]Gotcha.\e"
+	//and this one.
+}
+
+//Here are some examples of these envelopes in use.
+//"%(heshe) left that there."
+//"%(hisher) work is really cool."
+//"I'll ask %(himher) later."
+//"%(hesshes) really good at it."
+
+
+//These two options toggle whether or not you can delete your ghost. Leave them alone.
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+
+//This next set of functions handles inputting the user's birthday.
+
+Select.TEACHBDAY
+	{	
+		"\0\s[0]What month were you born? \w8Name or number is fine.\![open,inputbox,OnUserBornMonth,-1]\e"
+		
+		//You can replace the dialogue up to the \![open,inputbox,OnUserBornMonth,-1] tag, leave that alone. You'll need the input box to get the information.
+		
+		//*********************Advanced User Info*******************************
+		//I also touched on this in bootend.dic and explained it in the walkthrough page on coding, but I'll also go into it here. I'm going to break down the tag there at the end of the sentence so you know what it's doing. Basically, \! means a function is going to happen, open tells it to open something, inputbox tells it to open an input box, and OnUserBornMonth is the function the input box will be linked to, which is just below here. -1 means the input box should not time out. If you want to add input boxes to some new function for whatever reason, you should follow this basic format.
+		//On a related note, you can raise any function at the end of any piece of dialogue by using this format - \![raise,InsertFunctionName]. This can be handy for testing things if the function is hard to get to run otherwise.
+		//***********************************************************************
+	}
+
+//--OnUserBornMonth
+//This takes the value that the user put into the input box above and evaluates it. Most of this you won't have to touch, but I'll explain what it's doing anyway. I'll point out where you can change the dialogue.
+
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else //if the month isn't a valid month, like 32 or something.
+	{
+			"\0\s[0]That's not a valid month. Try again."
+			--
+			"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+			
+			//You can replace this dialogue in the first line. You need to leave the tag for the input box so they can put in a correct month. That last tag there for ![set,balloontimeout,-1] makes it so the input box won't time out if the user takes too long.
+	}
+	--
+	//If it's a valid month
+	
+	"\0\s[0]So you were born in %(bornmonthprint).\n\w8What day was it?"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+	
+	//Here you can see the use of a bornmonthprint envelope to show the user what month they put in. Notice that it opens an inputbox at the end the same way the one above did. You can replace the dialogue in the first line just as with above.
+}
+
+//This adds an appropriate suffix to the number for the day. No need to mess with this.
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}	
+
+//--OnUserBornDay
+//This is much like the above function OnUserBornMonth. It'll take the value the user put in for the day and analyze it. Again, there'll be comments explaining how it works, but all you really need to do is change the dialogue appropriately. I'll point out where you can add new dates to check for.
+
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","") //if the user types something like 2nd, 3rd, etc, this will make it just the number. It'll just add the suffix back later on the one that actually shows.
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30) //This ugly function checks if the day falls into a valid range. If it does, we set some variables and continue down.
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+		//Mostly defining envelopes and values in here. No need to touch any of this! Eagle-eyed readers will notice the new envelope birthchecked on its own line like a tiny king. We'll get to that momentarily, but pay it no mind for now.
+	}
+	else //If the day isn't valid, like the 10046th or something, this will open the input box again and have a \e so the dialogue below doesn't play. You can replace the dialogue in the first line here.
+	{
+		"\0\s[0]That's not a valid day. Try again."
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+//--birthchecked
+//This is the new envelope you saw me point out above. As you can see here, you can actually call dialogue in a function with an envelope, even when it has if and else statements like here! Which can be pretty handy. Again, more on envelopes in word.dic. Creative ghostmakers can find handy ways to exploit this, I'm sure.
+
+birthchecked
+{
+	if userbirthday == dayslot //if today is the user's birthday
+		{
+			"\0\s[0]It's the user's birthday.\w8\1\s[10]Happy birthday, %(username).\e"
+			//replace this dialogue with whatever you like
+		}
+	elseif userbirthday == "12month 25day"
+		{
+			"\0\s[0]The user was born on Christmas.\w8\1\s[10]Happy birthday, %(username). \w5\s[15]AND JESUS!\w8\0\s[9]\n\n[half]We're supposed to be a blank template, knock it off before we get in trouble.\e"
+			//As you can see, you can set up an elseif statement to check if the user's birthday is any day you want! More on elseif statements in bootend.dic. In this case, there's specialized dialogue if the user was born on Christmas. You can replace this with whatever you like, or change the date you're checking as well, like to one of your character's birthdays if you want. You can also delete this elseif if you don't care.
+		}
+	else //if the birthday is not listed above.
+		{
+			"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). We'll remember.\e"
+			//note the use of envelopes to display the newly set birthday properly. You can replace this dialogue as well, and you can use %(bornmonthprint) and %(borndayprint) to display the month and day in the new dialogue, if you want.
+		}
+}
+
+//--Talk Rate
+//This is when the user chooses to adjust the talk rate in the config menu. The talk rate is how often the ghost will read some dialogue from aitalk.dic.
+
+Select.talkinter
+ 	{
+		if monkeywatch == 1
+		{
+			"\i[5]*Maybe you can do it when he is not sitting down.\w8\w4\n\n\_q"
+			--
+			"\![*]\q[Go back,TalkConfig]\n/
+			\![*]\q[I'll do it later,CANCEL]\e"
+		}
+		else
+		{
+ 		"\0\s[21]\b2How often you want me to speak? \w8\w5\i[6]The interval is currently set to %(talktime)./
+		//note the new envelope here for %(talktime). You'll see it again in a second. You can replace the dialogue above with whatever you like, just make sure it ends with ./ and not \e.
+ 		\0\n\n[half]/
+ 		\![*]\q[Every 30 seconds,TALKMAX]\n/
+		\![*]\q[Every minute,TALKHIGH]\n/
+ 		\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+		\![*]\q[Every 5 minutes,TALKPOOR]\n/
+ 		\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+		\![*]\q[Don't change,TalksTill]\e"
+		}
+	}
+
+//If the user doesn't want to change the rate. You can change all of the dialogue in any of these options if you want to reflect the choice the user made. You TECHNICALLY could also change the value in talktime to reflect some other way of measuring time but I wouldn't recommend it, it'd just be confusing I'm sure.
+Select.TalksTill
+	{
+		"\0\s[7]I'll talk all the same then.\e"
+	}
+
+//If the user chooses every 30 seconds.
+Select.TALKMAX
+	{
+ 		talktime = "30 seconds" //this sets up the envelope properly
+		aitalkinterval = 30 //this changes the actual rate
+		
+ 		"\0\s[26]I'll talk every 30 seconds. \w8\w6\s[47]You like hearing me talk? \w8\w6\s[46]I'll take that as a complement.\e"
+	}
+
+//If the user chooses every minute.
+Select.TALKHIGH
+	{
+ 		talktime = "minute"
+		aitalkinterval = 60
+		
+ 		"\0\s[26]I'll speak every minute that passes on your monkey watch.\e"
+	}
+
+//If the user chooses every three minutes.
+Select.TALKNORMAL
+	{
+ 		talktime = "3 minutes"
+		aitalkinterval = 180
+		
+ 		"\0\s[7]I'll speak every three minutes. \w8\w6\s[47]Three turns of the monkey watch.\e"
+	}
+
+//If the user chooses every five minutes. This is the default rate the ghost will start up in, as seen in bootend.dic.
+Select.TALKPOOR
+	{
+ 		talktime = "5 minutes"
+		aitalkinterval = 300
+		
+ 		"\0\s[47]I'll speak every five minutes. \w8\w6\s[26]I do like to talk,\w4\s[7] but that's fine with me.\e"
+	}
+
+//If the user chooses to not have them speak. This is one case where you MIGHT want to make talktime equal something else, if you have a snappier way of saying the ghost won't talk. Make sure it flows well in your menus though, since it will be displayed in your config menu.
+Select.TALKNONE
+	{
+ 		talktime = "... actually, monkey is in a jail of silence."
+		aitalkinterval = 0
+		
+		"\0\s[24]Uh. \w8\w4Sure, \w6\w4\s[24]\i[6]I'll be silent. \w8\w5\s[7]As long as you don't bother me, \w3either.\e"
+	}
+
+	
+//This is when the user chooses to change their name. It's linked to the functions outlined in nameteach.dic. Nothing to touch here.
+Select.TEACHNAME
+	{
+		if monkeywatch == 1
+		{
+			"\i[5]*Maybe you can do it when he is not sitting down.\w8\w4\n\n\_q"
+			--
+			"\![*]\q[Go back,TalkConfig]\n/
+			\![*]\q[I'll do it later,CANCEL]\e"
+		}
+		else
+		{
+			OnTeachName	
+		}
+	}
+
+	
+//If the user selects cancel in a menu. Replace as you like, or just leave them blank.
+Select.CANCEL
+	{
+		if monkeywatch == 1
+		{
+			"\0\s[56]Aha.\e"
+		
+			"\0\s[56]Okay.\e"
+		
+			"\0\s[56]Cool.\e"
+		}
+		else
+		{
+			"Aha.\e"
+		
+			"Okay.\e"
+		
+			"Cool.\e"
+		
+			"\0\s[30]\i[6]Whatever.\e"
+		}
+ 	}
+
+	
+//Going back to the MenuRun function we finished above, this is if someone selects the Functions option, linked to dosomething. As you can see, it ends up as Select.dosomething.
+
+Select.dosomething
+{
+		if monkeywatch == 1
+		{
+			"\i[5]*Maybe you can do it when he is not sitting down.\w8\w4\n\n\_q"
+			--
+			"\![*]\q[Go back,TalkConfig]\n/
+			\![*]\q[I'll do it later,CANCEL]\e"
+		}
+		else
+		{
+			"\0\s[30]\b2Work? \w8\w5\s[44]\i[6]Ughhh.\n\n"
+			"\0\s[8]\b2Is that what you've summoned me for?\n\n"
+			"\0\s[30]\b2What is it?\n\n"
+			"\0\s[51]\b2Whatcha want?\n\n"
+			"\0\s[24]\b2Hm?\n\n"
+			
+			//I mentioned this above in MenuRun, but you can have a set of multiple different responses that may randomly appear when the menu is opened if you offset them from the rest with the -- dashes below this note. Try opening this menu yourself with the template to see how it works. The character will randomly choose one line as the intro. 
+			//If you don't want to deal with this, just delete the extra lines and leave one. Otherwise, replace the dialogue above as you like, but note that they don't end with \e here. You can leave the rest of this below alone.
+			--
+			"\![*]\q[Check for Macaque updates,updatecheck]\n\n/
+			\![*]\q[Open Calendar,CALENDAR]\n/
+			\![*]\q[Check Email,MailCheck]\n/
+			\![*]\q[Open SSP Preferences,sspconfig]\n/
+			\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+			\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+			\![*]\q[Back to main menu,BACKTOMENU]\e"
+		}
+}
+
+Select.updatecheck
+{
+	"\![updatebymyself]\e"
+}
+Select.clockchangerooni1
+{
+	
+	timecheckers = 0
+}
+Select.clockchangerooni2
+{
+	
+	timecheckers = 1
+}
+
+Select.resetmac
+{
+		if monkeywatch == 1
+		{
+			"\i[5]*Maybe you can do it when he is not sitting down with his back turned to you.\w8\w4\n\n\_q"
+			--
+			"\![*]\q[Go back,TalkConfig]\n/
+			\![*]\q[I'll do it later,CANCEL]\e"
+		}
+		else
+		{
+		"\_q\i[5]*Do you wish to reset your progress? Macaque will forget everything, including your name, the things he told you and the things you told him. It would be as if he was never there. Are you sure you want to proceed?\n\n"
+		--
+		"\![*]\q[Reset,resetmacyes]\n/
+		\![*]\q[Don't reset,resetmacno]\e"
+		}
+}
+
+Select.resetmacyes
+{
+ 	lastTalk = "" //This is part of how chained conversations work (see aitalk.dic).
+	username         = "Kiddo" //This sets a temporary name for the user. It'll be replaced when they tell the ghost their name.
+	birthdayprint = "????" //A temporary value for the user's birthday.
+	monthdialogue = 0
+	monkeymood = 0
+	frenpoints = 0
+	firstchoice = 4
+	patme = 0
+	timecheckers = 1
+	dayask = 0
+	monkeywatch = 0
+	"\0\s[0]\i[5]\i[6]*His mind has been casted in fog now..\e"
+}
+Select.resetmacno
+{
+	"\0\s[0]\i[6]\i[5]*His mind remains clear.\e"
+}
+//When the user clicks Open Calender. This will open the calender function of SSP, an in-built feature that you don't have to worry about in the least.
+Select.CALENDAR
+{
+	"\0\s[50]You want me to open a calendar for you? \w8\w6\s[52]\i[6]Okay then.\w8\![open,calendar]\e"
+	
+	//You can replace the dialogue here up to the \!.
+	//Advanced users, can you break it down yet? It's basically just using \! to open calender.exe or dll or whatever SSP uses to make it happen.
+}
+
+//When the user chooses SSP preferences. This will open the same window that shows up if you right click your ghost and go to Utilities - Preferences.
+Select.sspconfig
+{
+	"\0\s[53]You want me to check the SSP config menu?\w8\w6\i[6] Truly,\w5\s[3] a job for a demon of my caliber\w4.\w4.\w4.\w8\![open,configurationdialog]\e"
+	
+	//Again, you can replace up to the \! tag.
+}
+
+//If the user chooses to empty the recycle bin.
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	//Don't touch this line. for those curious, it's referencing a SAORI, which are optional user-made plug-in dlls you can download to enable different functions on your ghost. gomi.dll is one included with this template. All SAORI are in Japanese (maybe Korean or Chinese as well idk) and many have disappeared by now, so don't concern yourself very much with SAORI. They're for skilled developers, mostly.
+	
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"\0\s[30]You want me to empty your garbage? \w8\w5\s[43]Really? \w8\w5\s[42]\i[6]Fine.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8 \s[48]It was empty. \w8\w8\s[50]\i[6]I can throw you in there, \w4\s[52]all you have to do is ask.\e"
+		
+		//This isn't the usual flat template dialogue, mostly because I wanted to show that this is a good place to use s[-1], which I covered in the walkthrough file. You can have your ghost disappear momentarily like they're going to check your recycle bin, then come back. \c clears the ghost's balloon of text. Replace dialogue as you desire.
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"\0\s[44]Throw your trash away? \w8\w6\s[53]Truly,\w3\s[52]\i[6] something you need to summon a demon to do.\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[51]\i[6] Ta-da.\e"
+		
+		"\0\s[30]Well, \w6\s[43]\i[6]I'm off to do your dirty work.\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[27] There.\e"
+		
+		//Somewhat similar to the above, but notice the \![raise],OnGarbagecanEmpty] tag in there. That's what actually empties the recycle bin, so make sure you don't delete that tag. Otherwise, replace the dialogue as you want.
+		//As you can see, you can have multiple pieces of dialogue in here, just like you can for many other functions scattered through the .dic files. If you only want the one, just delete the others, or if you want to add more, just copy and paste and write new dialogue as it comes to you. This applies to when the recycle bin is empty as well.
+	}
+}
+
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+//This is when the user chooses System Information. Don't touch any of this either. For those curious though, note that this is done using another SAORI, this time saori_cpuid.dll.
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\s[0]\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+	
+//This is when the user chooses to check their email. The rest of this function plays out in etc.dic. You can leave this alone.
+Select.MailCheck
+	{
+		"\![biff]\e"
+	}
+
+
+	
+//---- OnChoiceTimeout ---------------------------------------------------------
+//If the user is given a menu with choices, but doesn't pick one of the choices, it will eventually time out. At that point, they will say this dialogue. Replace with whatever you like, or leave it blank.
+
+OnChoiceTimeout
+ {
+	if monkeywatch == 1
+	{
+		"\0\s[56]Hm.\e"
+		"\0\s[56]Aha.\e"
+		"\0\s[56]'kay.\e"
+	}
+	else
+	{
+		"\0\s[0]Hm.\e"
+		"\0\s[30]\i[6]Alright then.\e"
+		"'kay.\e"
+	}
+ }
+
+ 
+//---- Secondary Character Menu ---------------------------------------------------------
+//This section has to do with the menu for the second character. If you don't want your second character to have a menu, you can just delete this whole chunk.
+
+//yeet
+
+//There are no real set things for the second character to do, really. You can mostly add whatever functions you want to them, their menu is totally free reign. In mine for example, Hunter has some games, a pseudo-FAQ for users, a bug report, an update option, and most importantly, a test variable. A lot of that is fairly complicated though, so I won't get into it here. Advanced Users can pick up Hunter and Smoker and study their menu.dic to see how I did it though, and those who read the coding page of the walkthrough and want to make their own functions can feel free to add them here. 
+//For the purposes of this simple template, I'll include two options that may come in handy - an update option and a bug report option, as well as the test variable.
+
+//If you click cancel. Replace dialogue as you want.
+Select.keroCANCEL
+{
+	"\1\s[10]This is menu cancel dialogue.\e"
+}
+
+
+//This is when they select bug report. This is mostly meant to briefly give the user information about you, the creator, and how to report a problem to you. This can be handy if the person forgot where they got their ghost or how to contact you. Add whatever info you like here.
+Select.bugreport
+{
+"\1\s[10]This is the bug report dialogue. \w5Report bugs to youremailaddress@emailprovider.com. \w5We were downloaded from \_a[http://www.whereveryoupostedthem.com/]some place\_a.\e"
+}
+
+//When clicked, this will automatically tell the ghost to check for updates. More detail on updates in etc.dic. You can leave this alone.
+Select.keroupdatecheck
+{
+	"\1\s[10]\![updatebymyself]\e"
+}
+
+//--Test Variable --------------------------------------------------------
+//I briefly mentioned the test variable in bootend.dic and possibly in etc.dic as well, I'm not sure. What exactly is the test variable? Basically, it's a place you can plug in anything you want to test out. While you can use Script Input to test most of your ghost's dialogue, there are some lines it just can't do, and it can't help you test choices. But the test variable can!
+//You can also use this to test functions as I mentioned above by adding \![raise,function] at the end of it, although you can do this with Script Input as well. Advanced Users, the test variable is also great for testing out any new stuff you may add to your ghost, like mode settings, item values, functions, raising or lowering numbers, what have you, particularly if you have a bunch you want to change all at once.
+
+//It is ALWAYS A GOOD IDEA to test your dialogue! If you won't check it with the test variable, at least test it with Script Input! It'll save you so much trouble!
+
+Select.testvariable
+{
+	"\1\s[10]Testing!\e"
+}
+
+
+//"You can...\n\n[half]\![*]\q[Talk,talkstuff]\n\n[half]/
+//\![*]\q[Interact,interactstuff]\n\n\n[half]"
+
+Select.talkstuff
+{
+	monkeymood += 1
+	frenpoints += 1
+	if dayask == 0
+	{
+		frenpoints += 1
+		dayask = 1
+		monkeymood += 5
+		"\0\s[7]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[15]E\w2h\w2h\w2h.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[52]Just as handsome as yesterday.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[7]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[7]I'm great, \w3buddy.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[46]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[47]Had the greatest time today pestering annoying humans.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[30]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[50]\i[6]I've been concocting my next plan. \w8\w6\s[52]You'll like this one.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[53]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[50]\i[6]I've been concocting my next plan. \w8\w6\s[29]You'll hate this one.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[1]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[45]\w8\w8\w8\w8\w8\s[15]\i[6]Whatever.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[2]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[7]Very lazy, bud.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[2]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[19]\i[6]Peachy.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[1]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[0]Tired, \w3bud. \w8\w4\s[22]\i[6]Yeah, \w4even I have one of these days. \w8\w6\s[48]Maybe more than you can imagine. \w8\w4\s[12]But, \w3whatever.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[2]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[8]You worry about me, \w4%(username)? \w8\w6\s[3]How adorable.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[20]\i[5]\i[6]*You ask him how he is doing today. \n\n[half]\w8\w4\s[12]\i[6]H\w2u\w2n\w2g\w2r\w2y\w2y\w2y\w2y\w2y.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[52]Like I've been punched through a whole mountain. \w8\w5\s[54]Which might've happened. \w8\w5\s[51]\i[6]Who knows.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[11]\i[6]Fur's been itchy\w3.\w3.\w3.\w8\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[44]\i[6]Eh.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[52]Spent my day teaching the kid some moves. \w8\w5\s[9]As the superior mentor, \w5\s[14]I'm sure he'll use his powers sneakily and unwisely and all that.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[2]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[20]Spent my day teaching the kid some things. \w8\w6\s[19]\i[6]Stuff like the importance of your choices, \w4responsibility, \w4all that junk.\w8\w6\s[21] Not as fun as the flashy battle moves, \w3\s[15]but, \w3sadly, \w3\s[16]can't do without it. \w8\w8\w5\s[18]\i[6]And that's coming from me.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[1]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[52]I'm fine, \w4kiddo. \w8\w6\s[51]\i[6]You don't have to ask me all that.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w6\s[44]I spent the whole day looking for bananas. \w8\w6\s[42]Don't laugh, \w4it was a serious ordeal. \w8\w8.\w8.\w8. \w8\w8\s[11]I didn't find any, \w4and I'm still pissed off about it.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[19]I was hanging out with Bai He. \w8\w6\s[15]That kid needs therapy after the whole LBD body possession shtick. \w8\w6\s[16]I'm not a therapist, \w5\s[19]\i[6]but I can show her some sick shadow plays.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+	}
+	else
+	{
+		"\i[5]*You call him your champion. \n\n[half]\w8\w4\s[42]Hey, \w4none of that.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You tell him you like his hair. \n\n[half]\w8\w4\s[13]Thanks. \w8\w6\s[52]\i[6]I cut it myself.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You tell him you like his ears. \n\n[half]\w8\w4\s[50]Thanks. \w8\w6\s[14]They are not natural.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\0\s[0]\i[5]*You tell him you like his eyes. \n\n[half]\w8\w4\s[13]Thanks, \w4bud. \w8\w4\s[52]It takes quite the concentration to maintain them like this.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[52]Too much television.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[19]Rock-paper-scissors accident.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[44]Sun Wukong, \w4\s[48]what else?\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[15]I didn't blink enough.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[52]A very unfortunate wink.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[29]My left eye got jealous.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		//"\0\s[0]\i[5]*You ask him what happened to his right eye. \n\n[half]\w8\w4\s[2]Too much television.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him why he looks a lot like Monkey King. \n\n[half]\w8\w4\s[42]I'm nothing like him!\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him how he died. \s[1]\n\n[half]\w8\w4\w8\w4\s[45]\w8\w8\w8\w8\w8\w8\w6\s[22]\i[6]Bitterly and painfully. \w8\w6\s[48]\i[6]Jeez, \w3kid, \w3\s[43]what kind of question is that? \w8\w6\s[16]You must be a riot at parties.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him if he likes your place. \n\n[half]\w8\w4\s[31]It's a bit of a dump, \w4\s[29]but I've seen worse.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You call him handsome. \n\n[half]\w8\w4\s[20]Hehe, \w4thank you. \w8\w6\s[19]\i[6]They've called me the most handsome of villains, \w5\s[7]and they are not wrong.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him where he lives. \n\n[half]\w8\w4\s[29]Where all best villains live \w5- \s[26]on a beautiful lone island somewhere in the middle of nowhere.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[21]Don't quit. \w8\w5\s[26]Or do. \w8\w5\s[7]That's my advice.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[27]Don't trust anybody.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[52]Eat food, \w3drink water, \w3take your medicine, \w3get enough sleep, \w3finish off your enemies. \w8\w6\s[50]\i[6]There, \w3you're set.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[27]Don't trust Monkey King.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[22]Make your own choices, \w3bud.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[47]Baking soda really helps with the fleas.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[42]Don't trust talking bones.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[81]I'm fine, kiddo. You don't have to ask me all that.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[28]I spent the whole day looking for bananas. Don't laugh, it was a serious ordeal. ... I didn't find any, and I'm still pissed off about it.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[28]Hanging out with Bai He. That kid needs therapy after the whole LBD body possession shtick. I'm not a therapist, but I can show her some sick shadow plays.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+	}
+}
+
+Select.interactstuff
+{
+	"\i[5]*You want to...\n\_q\n"
+	--
+	"\![*]\q[Watch something together,watchstuff]\n\n\n/
+	\![*]\q[Go back,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+//WATCH STUFF--------------
+Select.watchstuff//MENU
+{
+	 	"\i[5]\b2*You want him to watch...\n\_q\n\n"
+		--
+ 		"\![*]\q[Videos,watchvids]\n/
+		\![*]\q[Movies,watchmovies]\n/
+		\![*]\q[Games,watchgames]\n/
+		\![*]\q[Drawing,watchdraw]\n/
+		\![*]\q[Writing,watchwrite]\n/
+		\![*]\q[Homework,watchhome]\n/
+		\![*]\q[Music,watchmusic]\n\n[half]/
+		\![*]\q[Screen,watchscreen]\n\n\n/
+		\![*]\q[Go back,BACKTOMENU]\n/
+ 		\![*]\q[Nevermind,CANCEL]\e"
+}
+
+
+Select.watchvids//VIDEOS
+{
+	monkeywatch = 1
+	watchmacvideos = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch videos with you. \n\n[half]\w8\w4\s[53]Fine, \w4fine.\s[62]\w8\w8 \s[56]What do you want to show me?\e"
+	"\i[5]*You ask Macaque to watch videos with you. \n\n[half]\w8\w4\s[29]\i[6]Alright.\s[62]\w8\w8 \s[56]You better have something interesting, \w4bud.\e"
+	"\i[5]*You ask Macaque to watch videos with you. \n\n[half]\w8\w4\s[0]Hm? \w8\w4Alright.\s[62]\w8\w8 \s[56]What are we watching?\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch videos with you. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch videos with you. \n\n[half]\w8\w4\s[52]Alright.\s[62]\w8\w8 \s[56]I'd object, \w4\s[57]but you do seem to have taste.\e"
+	}
+}
+
+Select.watchmovies//MOVIES
+{
+	monkeywatch = 1
+	watchmacmovies = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch movies with you. \n\n[half]\w8\w4\s[53]Fine, \w4fine.\s[62]\w8\w8 \s[56]What do you want to show me?\e"
+	"\i[5]*You ask Macaque to watch movies with you. \n\n[half]\w8\w4\s[29]\i[6]Alright.\s[62]\w8\w8 \s[56]But it's better be good, \w3bud.\e"
+	"\i[5]*You ask Macaque to watch movies with you. \n\n[half]\w8\w4\s[13]Hm? \w8\w4Alright.\s[62]\w8\w8 \s[56]What you got there?\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch movies with you. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch movies with you. \n\n[half]\w8\w4\s[52]Alright.\s[62]\w8\w8 \s[56]Don't tell anybody I said that, \w3but Monkey Cop 4 is underrated.\e"
+	}
+}
+
+Select.watchgames//GAMES
+{
+	monkeywatch = 1
+	watchmacgames = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch you play games. \n\n[half]\w8\w4\s[30]\i[6]F\w2i\w2i\w2i\w2i\w2i\w2ne.\s[62]\w8\w8 \s[56]What do you want to show me?\e"
+	"\i[5]*You ask Macaque to watch you play games. \n\n[half]\w8\w4\s[53]'kay.\s[62]\w8\w8 \s[56]But I'll be judging your gamer skills, \w3buddy.\e"
+	"\i[5]*You ask Macaque to watch you play games. \n\n[half]\w8\w4\s[2]Hm? \w8\w4Okay.\s[62]\w8\w8 \s[56]Is that why you called me here? \w8\w5To walk you through this?\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch you play games. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch you play games. \n\n[half]\w8\w4\s[50]\i[6]Alright\w2-io.\s[62]\w8\w8 \s[56]Didja know that I made a game, \w4too? \w8\w5Put a lot of work into it.\e"
+	}
+}
+
+Select.watchdraw//DRAW
+{
+	monkeywatch = 1
+	watchmacdraw = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch you draw. \n\n[half]\w8\w4\s[1]Alright.\s[62]\w8\w8 \s[56]Art,\w3 you say?\e"
+	"\i[5]*You ask Macaque to watch you draw. \n\n[half]\w8\w4\s[28]Okay, \w3I guess.\s[62]\w8\w8 \s[56]Let's see what kind of things you draw.\e"
+	"\i[5]*You ask Macaque to watch you draw. \n\n[half]\w8\w4\s[53]Oh? \w8\w4Fine.\s[62]\w8\w8 \s[56]You lucky I like art.\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch you draw. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Art\w3.\w3.\w3.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch you draw. \n\n[half]\w8\w4\s[50]\i[6]Sure thing.\s[62]\w8\w8 \s[56]Kids draw me stuff, \w3too.\e"
+		"\i[5]*You ask Macaque to watch you draw. \n\n[half]\w8\w4\s[13]Aha, \w3aha.\s[62]\w8\w8 \s[56]I'm pretty good at art, \w3too,\w3 if I do say so myself. \w8\w6And I do.\e"
+	}
+}
+
+Select.watchwrite//WRITING
+{
+	monkeywatch = 1
+	watchmacwrite = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch you write. \n\n[half]\w8\w4\s[52]\i[6]Aha, \w4okay.\s[62]\w8\w8 \s[56]What is it that you're writing, \w3exactly?\e"
+	"\i[5]*You ask Macaque to watch you write. \n\n[half]\w8\w4\s[53]'kay.\s[62]\w8\w8 \s[56]But it better not be boring.\e"
+	"\i[5]*You ask Macaque to watch you write. \n\n[half]\w8\w4\s[27]\i[6]Fine.\s[62]\w8\w8 \s[56]Is that why you called me here? \w8\w5To judge your story?\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch you write. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch you write. \n\n[half]\w8\w4\s[8]\i[6]Sure thing.\s[62]\w8\w8 \s[56]Didja know I write all my shadow play myself?\e"
+	}
+}
+
+Select.watchhome//HOMEWORK
+{
+	monkeywatch = 1
+	watchmacwatchhome = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch you do your homework. \n\n[half]\w8\w4\s[28]Okay?\s[62]\w8\w8 \s[56]I guess I'll babysit ya.\e"
+	"\i[5]*You ask Macaque to watch you do your homework. \n\n[half]\w8\w4\s[28]\i[6]Fine\s[62]\w8\w8 \s[56]Don't be surprise if I fall asleep. \w8\w5Or sneak away when you aren't looking.\e"
+	"\i[5]*You ask Macaque to watch you do your homework. \n\n[half]\w8\w4\s[51]Fine, \w4fine.\s[62]\w8\w8 \s[56]Is that why you called me here? \w8\w5To help you with your homework? \w8\w5Thrilling.\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch you do your homework. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch you do your homework. \n\n[half]\w8\w4\s[8]\i[6]F\w2i\w2i\w2i\w2i\w2i\w2ne.\s[62]\w8\w8 \s[56]I already have to help Bai He, \w4so maybe\nI've seen some of this stuff.\e"
+	}
+}
+
+Select.watchmusic//MUSIC
+{
+	monkeywatch = 1
+	watchmacmusic = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[28]Sure, \w4I guess.\s[62]\w8\w8 \s[56]Don't make it too loud.\e"
+	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[53]Aha.\s[62]\w8\w8 \s[56]What tunes you got?\e"
+	"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[27]Okay.\s[62]\w8\w8 \s[56]Know that I'll be judging your music taste.\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to listen to music with you. \n\n[half]\w8\w4\s[8]\i[6]Sure thing.\s[62]\w8\w8 \s[56]Judging from all the eavesdropping I am doing, \w3stuff you listen to is not that bad.\e"
+	}
+}
+
+Select.watchscreen//SCREEN
+{
+	monkeywatch = 1
+	watchmacwatchscreen = 1
+	lastTalk = ""
+	"\i[5]*You ask Macaque to watch you do things. \n\n[half]\w8\w4\s[52]Alright.\s[62]\w8\w8 \s[56]What are you gonna do, \w3exactly?\e"
+	"\i[5]*You ask Macaque to watch you do things. \n\n[half]\w8\w4\s[50]Fine\s[62]\w8\w8 \s[56]Just don't bore me to death.\e"
+	"\i[5]*You ask Macaque to watch you do things. \n\n[half]\w8\w4\s[1]Oh? \w8\w4Sure.\s[62]\w8\w8 \s[56]Is that why you called me here? \w8\w5To watch over your domain?\e"
+	if monkeymood < 0
+	{
+		"\i[5]*You ask Macaque to watch you do things. \n\n[half]\w8\w4\s[0]Aha. \w8\w5\s[62]Whatever.\w8\w8\s[56]\e"
+	}
+	if frenpoints > 300
+	{
+		"\i[5]*You ask Macaque to watch you do things. \n\n[half]\w8\w4\s[51]Sure thing.\s[62]\w8\w8 \s[56]You \f[italic,true]\w2are\f[italic,false] \w2quite entertaining to watch.\e"
+	}
+}
+
+Select.macwatchover//STAND UP
+{
+	monkeywatch = 0
+	watchmacwatchscreen = 0
+	watchmacmusic = 0
+	watchmacwatchhome = 0
+	watchmacdraw = 0
+	watchmacgames = 0
+	watchmacmovies = 0
+	watchmacvideos = 0
+	watchmacwrite = 0
+	lastTalk = ""
+	"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4\s[58]'kay.\w8\w8\s[8]\i[6] Didja do what you wanted or quit halfway there?\e"
+	"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4\s[58]Alright then.\w8\w8\s[53]\w8 Had fun?\e"
+	"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4\s[58]Sure. \w8\w8\w5\s[21]What now?\w8\e"
+	if frenpoints > 300
+	{
+		"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4A\w1w\w1w\w1h\w1h\w1h\w1h\w3.\w3.\w3. \s[129]\w8\w3Alright.\w8\s[0]\e"
+		"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4Alright. \s[129]\w8\w3Well\w3.\w3.\w3. \w8\w4\s[19]What are we gonna do now?\e"
+		"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4Okie\w3-dokie. \s[129]\w8\w3I rea\s[23]lly enjoyed that.\e"
+		"\0\s[56]\i[5]*You tell Macaque the watch party is over. \n\n[half]\w8\w4Okie\w3-dokie. \s[129]\w8\w3Can we\s[0] do this again later?\e"
+	}
+}

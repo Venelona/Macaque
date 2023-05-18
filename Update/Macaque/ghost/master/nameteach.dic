@@ -1,0 +1,173 @@
+﻿//---------------------------The User's Name--------------------------
+//This .dic file has to do with setting the user's name and suffix/prefix. You may recall some of the functions mentioned here from bootend.dic. As you can see, you can spread functions across multiple .dic files if you like! Just remember my note in bootend.dic about the different between OnFunction and Function.
+
+//This file is fairly short, so don't worry! It shouldn't take you too long to finish.
+
+//Make sure to read the walkthrough (http://www.ashido.com/ukagaka/walkthrough.html) for more details about how to properly format ghost dialogue!
+//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
+//It will also highlight my commented lines in green, so you'll know where they are. Any line beginning with // is a commented line that the code will not read. It's just for your reference!
+
+
+//--OnTeachName
+//This is called from the config menu in the main character's double click menu when the user says they want to change their name. If you look in menu.dic you'll see the code leading to here.
+
+OnTeachName	
+{
+	if reference0 == "TEACHNAME" //ignore this
+		{
+		"\0\s[8]Call you something else? \w8\w5\s[29]'kay.\![open,inputbox,OnNameTeach,-1]\e"
+		//This is the bit of dialogue you can rewrite if you want. Note that this line ends with \![open,inputbox,OnNameTeach,-1]. You may recognize this from bootend.dic. Essentially, this will lead to the next function. Make sure you don't delete that tag! The rest you can do whatever with though.
+		}
+	else
+		{
+		//This else statement is empty, and I'm mostly pointing this out to mention that you can do this too with your if/elses if you want! An empty else will simply cause your ghost not to do anything. I wouldn't get too crazy with this though.
+		}
+}
+
+
+//--OnNameTeach
+
+
+OnNameTeach
+{
+	tempname = reference0 //this stores the name value from reference0 in tempname
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	
+	//Those extra TOLOWER/REPLACE things up there basically clean up the user's input so you don't have to check for Girl, GIRL, girl, GiRl, etc. It'll make it much easier to check for any specific name, since you won't have to account for any edge cases. Note that the names you will be checking for should be in all lowercase, however.
+	if reference0 == "macaque" //this checks to see if the user input any variation of the name "Girl". You may want to put in a check here if the user tries to name themselves the same name as your characters, since that could be confusing in dialogue. Or just a response to any kind of strange name, like Barack Obama or Cindy Crawford or Mike Nelson or Random Hajile. Or you can prevent certain offensive names if you don't want users using them. Really the power is yours here.
+	{
+		"\0\s[48]That's my name, \w4\s[43]didn't you hear me? \w8\w5\s[30]I don't like sharing something I didn't even steal, \w3bud.\![open,inputbox,OnNameTeach,-1]"
+			//Note here that it's using the same tag as above to reopen the text box to let the user put in another name. You can replace the dialogue with whatever as long as you keep the \![open,inputbox,OnNameTeach,-1] tag.
+	}
+	elseif reference0 == "sixearedmacaque"
+	{
+		"\0\s[48]That's my name, \w4\s[43]didn't you hear me? \w8\w5\s[30]I don't like sharing something I didn't even steal, \w3bud.\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "monkeyking" ||  reference0 == "wukong" || reference0 == "sunwukong" || reference0 == "greatsage" || reference0 == "thegreatsage" || reference0 == "thegreatsageequaltoheaven"
+	{
+		"\0\s[13]\i[6]V\w2e\w2e\w2e\w2e\w2ry funny, \w4bud. \w8\w3\s[48]I'm not calling you that.\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "" //This is if the user doesn't put in a name at all, since that'd also get awkward in dialogue.
+	{
+			//You can change this snip to whatever.
+		if firstboot == 1
+		{
+			username = "Human"
+			NameDone
+		}
+		else
+		{
+			username = "Human" //this sets the user's name to USER.
+			"\0\s[51]You're a shy one, \w3huh? \w8\w5\s[3]Or do you find me too shady to trust with your name? \w8\w8\w5\i[6]Heh. \w8\w6\s[50]That's fine. \w8\w6\s[52]\i[6]I'll just call you plain human then.\e"
+		}
+	}
+	elseif firstboot != 1
+	{
+		if reference0 == "peach" ||  reference0 == "peaches" 
+		{
+			if firstboot == 1
+			{
+				username = tempname
+				NameDone
+			}
+			else
+			{
+				username = tempname
+				"\0\s[53]%(username)? \w8\w8\s[51]\i[6]Heh. \w8\w8\s[8]Cute. \w8\w8\s[53]Alright then.\e"
+			}
+			
+		}
+		elseif reference0 == "" //This is if the user doesn't put in a name at all, since that'd also get awkward in dialogue.
+		{
+			//You can change this snip to whatever.
+			if firstboot == 1
+			{
+				username = tempname
+				NameDone
+			}
+			else
+			{
+				username = "Human" //this sets the user's name to USER.
+				"\0\s[51]You're a shy one, \w3huh? \w8\w5\s[3]Or do you find me too shady to trust with your name? \w8\w8\w5\i[6]Heh. \w8\w6\s[50]That's fine. \w8\w6\s[52]\i[6]I'll just call you plain human then.\e"
+			}
+		}
+		else 
+		{
+			username = tempname
+			"\![leave,passivemode]\0\s[52]%(username)? \w8\w5\s[53]\i[6]Fine. \w8\w6\s[7]Makes little difference to me.\e"
+		}
+	}
+	else
+	{
+		username = tempname
+		NameDone
+	}
+}
+	//*********************Advanced User Info*******************************
+	//Adding new titles for your users to use is simply a matter of copy and pasting creatively. You can see how the ghost puts together the title and your name in the Select. sections below. Above, you simply need to add a new option and link it to a new Select. For example, you could add "\![*]\q[Mistress,titlemistress]\n/" between Ms. and Lady up there, then write up a Select.titlemistress below that fits the pattern of the others.
+	//***********************************************************************
+	
+	//The following Select.title[word] functions add the title to the user's name, then go to the final step, NameDone. You don't have to touch any of these. Advanced users, notice how these match the linked functions in the choices above.
+	
+Select.titlenone
+{
+		username = tempname
+		NameDone
+}
+
+Select.titlemr
+{
+		username = "Mr. " + tempname
+		NameDone
+}
+
+//--NameDone
+//This is the final bit of dialogue your ghosts will have when the user changes their name. There is a special section here for when the user first boots the ghost.
+
+NameDone
+{
+	if firstboot == 1 //this checks for the flag that was set during the firstboot sequence
+	{
+		firstboot = 0 //this turns the flag off
+		
+		//This dialogue will display the first time the user puts in their name. You might want to add some closing thoughts to the introduction your ghost had in OnFirstBoot, or directions about how to use the ghost, or something like that. It's up to you!
+		"\0\s[51]\i[6]%(username), \w4huh\w3.\w3.\w3. \w8\w6\s[13]Neat. \w8\w6\s[14]\i[6]Okay, \w4%(username), \w4\s[3]let's cut to the chase\w6\s[52] - what business a mortal like \w3you\w3 \s[51]would have summoning \w3me?\n\n[half]/
+		\w5\_q\![*]\q[Keep me company,startcompany]\n/
+		\![*]\q[Do my dirty work,startwork]\n/
+		\![*]\q[Pamper you,startpamper]\n/
+		\![*]\q[Don't know,startnotknow]\e"
+	}
+	else
+	{
+	"\0\s[0]%(username)? \w8\w4Sure. \w8\w4Makes little difference to me.\e"
+	//Rewrite this as you like. Note the %(username) tag here, as you should be well familiar with by now from the walkthrough and the other .dic files. That will display the name the user just created.
+	}	
+}
+
+Select.startcompany
+{
+	firstchoice = 1
+	"\![leave,passivemode]\0\s[51]\i[5]*You tell him you wish he would \s[1]\i[5]keep you company.\n\n[half]\w8\w4\s[1]Uh- \w4really? \w8\w4\s[27]What's the catch? \w8\w6I mean- \w8\s[9]I know I'm charming, \w6\s[14]and if you wish for my company, \w5\s[51]I won't deny you that pleasure.\e"
+}
+
+Select.startwork
+{
+	firstchoice = 2
+	"\![leave,passivemode]\0\s[51]\i[5]*You tell him you wish to put \s[42]\i[5]him to work.\n\n[half]\w8\w6\s[42]Oh, \w5\s[42]so you're that type of person. \w8\w5\s[48]Figures. \w8\w8\s[44]\i[6]Fine, \w3fine, \w3\nI'll get to it\w3.\w3.\w3. \w8\w8\w8\w6\s[52]Eventually. \w8\w8\w6\s[50]\i[6]Maybe. \w8\w8\w6\s[20]\i[6]If I feel like it. \w8\w8\w6\s[19]\i[6]Which I probably won't.\e"
+	
+}
+
+Select.startpamper
+{
+	firstchoice = 3
+	"\![leave,passivemode]\0\s[51]\i[5]*You tell him you wish to sho\s[1]\i[5]wer him with affection.\n\n[half]\w8\w8\s[27]V\w2e\w2e\w2e\w2e\w2r\w2y funny, \w3bud. \w8\w8\s[28]\i[6]Either you have me confused with another monkey, \s[30]o\w2o\w2o\w2r you are plain \w2weird. \w8\w6\s[16]\i[6]Whatever. \w8\w6\s[15]Just don't be too weird,\w4 'kay?\e"
+}
+
+Select.startnotknow
+{
+	firstchoice = 4
+	"\![leave,passivemode]\0\s[51]\i[5]*You tell him you are un\s[42]\i[5]sure why you've summoned him.\n\n[half]\w8\w4\s[14]Is that so?\w8\w6\s[13] So you're summon demons first \s[51]ask questions later type of a mortal? \w8\w6\s[19]That's fine with me, \w4\s[7]gives me some free time. \w8\w6\s[26]Take your time deciding,\w4 bud.\e"
+}

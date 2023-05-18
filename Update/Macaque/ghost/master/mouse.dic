@@ -1,0 +1,380 @@
+﻿//---------------------------Mouse Functions--------------------------
+//As you've probably guessed, this .dic file has to do with mouse functions. This includes the petting feature and what happens when you double click your ghost.
+//As a note, this .dic file isn't strictly necessary - I'm pretty sure you can just clear the file and it won't hurt your ghost any, it'll just make it so you can't pet or double click them. And if you're interested in only petting or double clicking one character, all you have to do is delete the chunks of code for the other character you want to be uninvolved. However, I'm assuming most people making ghosts want to make their ghosts pettable and clickable, so this will cover the messages for both.
+
+//Make sure to read the walkthrough page (http://www.ashido.com/ukagaka/) for more details about how to properly format ghost dialogue!
+//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
+//It will also highlight my commented lines in green, so you'll know where they are. Any line beginning with // is a commented line that the code will not read. It's just for your reference!
+
+
+//--OnMouseMove
+//This is a bunch of code determining who the mouse is over. Don't touch any of it.
+
+OnMouseMove
+ {
+		//---- reference3 determines the character in question
+		if reference3 == 0 //if the character is 0, aka the main character
+		{
+			//---- it will run the mouse functions for that character
+			MouseMoveSakura
+		}
+		else //if the character isn't 0, then it must be the side character.
+		{
+			//---- this will run the mouse functions for the side character.
+			MouseMoveKero
+		}
+ }
+ 
+ //*********************Advanced User Info*******************************
+//These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+
+//If you want to have more than two characters at any point, like for example how I added Charger with my Hunter/Smoker ghost, and you want to be able to interact with that character like you can with the others, you will have to add in that character to OnMouseMove above. You'll need to know the p[] you've assigned your third character to, which in Charger's case was 3. You can assign your third character any p you want, just be consistent about using the same p[] everytime. I touch on \p a bit more in the walkthrough.
+//So anyway, as you can see above, OnMouseMove determines who the user is touching, so you'll just have to add in an elseif checking for reference3 == 3, or reference3 == 4, or whatever p number is you're using. More on elseif in the walkthrough and in bootend.dic. After that, you'll just need to copy and paste the other mouse functions below and change the name as you need (for example, MouseMoveCharger, MouseDoubleClickCharger). 
+
+//Note though that the extra character will not be a hard-coded character like 0 and 1! You're basically tricking the program into thinking there's another character, and some functions in things like menu.dic and aitalk.dic won't work quite right if you put in a value other than 0 or 1, and you'll need to be careful about making sure to remove the third character when you're done. But luckily for you, this won't be a problem with any of the mouse functions as far as I'm aware, and you can fill them out for the third character just like you would for the two main ones.
+//***********************************************************************
+
+
+ //--MouseMoveSakura
+ //The petting function for your main character. Remember how it was referred to as sakura in some of the descript.txt and install.txt files?
+ 
+MouseMoveSakura
+ {
+	if reference4 != "" //ignore
+ 	{
+ 		stroke++ //if you move the mouse over the right areas, the stroke count will go up.
+ 		if stroke >= 40 //if the stroke count is above a certain number, the petting dialogue will kick in. You can change this number to make the petting take longer or shorter if you want. FLELEs have it set to 50 for some reason, which makes it take longer than this.
+		{
+ 			stroke = 0 //resetting the stroke count
+			if reference4 == "Head" //do you remember the names of the areas you set up for your collisions in surfaces.txt? This is where they come into play! This is where you'd put in the name of your collision, such as head, face, horns, tail, ears, whatever. As mentioned in surfaces.txt, you can add as many collisions to a pose as you want, as long as you make sure to add them all in here so they can actually be used.
+				//first pat
+			{
+				if patme == 0 && firstchoice != 3
+				{
+					patme += 1
+					monkeymood += 5
+					frenpoints += 5
+					"\![enter,passivemode]\0\s[35]Woah- \w6\s[39]what's that about? \w8\w6\n\n[half]\i[5]*You tell him you want to pat him on the head.\w8\w6\n\n[half]\s[54]\i[6]Really now\w4.\w4.\w4. \w8\w6\s[48]I'm watching you,\w3 human.\![leave,passivemode]\e"
+				}
+				elseif patme == 0 && firstchoice == 3
+				{
+					patme += 1
+					monkeymood += 5
+					frenpoints += 8
+					"\![enter,passivemode]\0\s[34]Oop- \w8\w4\s[54]ey there, \w4tiger. \w8\w6\s[51]Is that what you meant by showering me with affection? \w8\w5\s[50]\i[6]I didn't think you were serious\w3.\w3.\w3.\![leave,passivemode]\e"
+				} 
+				elseif patme >= 1 && patme < 50
+				{
+					patme += 1
+					monkeymood += 1
+					frenpoints += 1
+					"\0\s[37]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[37]Dude\w3.\w3.\w3.\e"
+					"\0\s[38]Bud\w3.\w3.\w3.\e"
+					"\0\s[39]Pal\w3.\w3.\w3.\e"
+					"\0\s[38]\i[6]Kid\w3.\w3.\w3.\e"
+					"\0\s[16]\i[6]Really?\w3.\w3.\e"
+					"\0\s[41]\i[6]Fancy losing your arm?\e"
+					"\0\s[37]Come on, \w5pal\w3.\w3.\w3.\e"
+					"\0\s[38]C'mon, \w4dude\w3.\w3.\w3.\e"
+					"\0\s[31]Careful with the hair.\e"
+					"\0\s[31]Hey, \w3that's my hair, \w3bud!\e"
+					"\0\s[48]Are you trying to touch my ears?\e"
+					"\0\s[24]\i[5]\i[6]*His nose twitches.\e"
+					"\0\s[27]\i[5]*His nose twitches.\s[27]\e"
+					"\0\s[42]Hey!\e"
+					"\0\s[31]\i[6]*He waves your hand away.\s[31]\e"
+					"\0\s[38]\i[5]*He pouts.\s[38]\e"
+					"\0\s[33]Really, \w4what's that about?\e"
+					"\0\s[16]You're weird\w3.\w3.\w3.\e"
+					"\0\s[48]\i[6]Watch your hands, bud.\e"
+					"\0\s[1]Hm?\e"
+					"\0\s[34]Huh-\e"
+					"\0\s[35]Oh?\e"
+					"\0\s[54]Ugh\w4.\w4.\w4.\e"
+					"\0\s[54]\i[6]C'mon now\w4.\w4.\w4.\e"
+					"\0\s[48]\i[6]I'd be more careful, \w4bud.\e"
+					"\0\s[32]Careful, \w4\s[13]I bite,\w4 yunno.\e"
+					"\0\s[12]\i[6]I know I'm irresistable, \w4\s[12]but you could use some more resisting,\w4 bud.\e"
+				}
+				elseif patme == 50
+				{
+					patme += 1
+					monkeymood += 1
+					frenpoints += 1
+					"\0\s[36]You\w6.\w6.\w6. \w8\w8\w5\s[38]you sure like giving me affection, \w4huh\w4.\w4.\w4. \w8\w4\s[51]So,\w5 what's the catch?\n\n[half]/
+					\w5\_q\![*]\q[Catch?,catchquestion]\n/
+					\![*]\q[No catch,catchno]\n/
+					\![*]\q[It's my master plan,catchplan]\n/
+					\![*]\q[Don't worry about it,catchworry]\n/
+					\![*]\q[It's just pets,catchpets]\e"
+				}
+				elseif patme > 50 && patme < 100
+				{
+					patme += 1
+					monkeymood += 1
+					frenpoints += 1
+					"\0\s[37]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[12]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[38]Dude\w3.\w3.\w3.\e"
+					"\0\s[37]Buddy\w3.\w3.\w3.\e"
+					"\0\s[31]Pal\w3.\w3.\w3.\e"
+					"\0\s[32]Oh hey there.\e"
+					"\0\s[38]\i[6]Kid\w3.\w3.\w3.\e"
+					"\0\s[16]\i[6]Really?\w3.\w3.\e"
+					"\0\s[11]\i[6]C'mon, \w4kid\w3.\w3.\w3.\e"
+					"\0\s[12]Come on, \w4pal\w3.\w3.\w3.\e"
+					"\0\s[31]Careful with the hair.\e"
+					"\0\s[11]\i[6]Careful with the hair.\e"
+					"\0\s[39]Hands off the ears,\w3 bud.\e"
+					"\0\s[24]\i[5]\i[6]*His nose twitches.\e"
+					"\0\s[27]\i[5]*His nose twitches.\s[27]\e"
+					"\0\s[16]You're weird\w3.\w3.\w3.\e"
+					"\0\s[53]\i[6]You're weird\w3.\w3.\w3.\e"
+					"\0\s[51]Really?\w8\w5 Again?\e"
+					"\0\s[1]Hm?\e"
+					"\0\s[34]Huh-\e"
+					"\0\s[35]Oh?\e"
+					"\0\s[54]Again\w4?\w4.\w4.\e"
+					"\0\s[45]Stop trying to be nice\w3.\w3.\w3.\e"
+					"\0\s[16]\i[6]This is not necessary,\w4 bud.\e"
+					"\0\s[39]Didn't I tell you that you don't have to do this?\e"
+					"\0\s[24]\i[6]\i[5]*He sighs.\e"
+					"\0\s[30]\i[6]\i[5]*He sighs.\e"
+					"\0\s[16].\w3.\w3.\e"
+					"\0\s[12].\w3.\w3.\e"
+					"\0\s[27].\w3.\w3.\e"
+					"\0\s[22].\w3.\w3.\e"
+					"\0\s[42]\i[5]*He narrows his eyebrows at you.\s[42]\e"
+				}
+				elseif patme >= 100 && patme < 150
+				{
+					patme += 1
+					monkeymood += 1
+					frenpoints += 1
+					"\0\s[37]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[12]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[38]\i[6]Dude\w3.\w3.\w3.\e"
+					"\0\s[54]Buddy\w3.\w3.\w3.\e"
+					"\0\s[32]Oh hey there.\e"
+					"\0\s[16]\i[6]Really?\w3.\w3.\e"
+					"\0\s[11]C'mon, \w4kid\w3.\w3.\w3.\e"
+					"\0\s[12]Come on, \w4pal\w3.\w3.\w3.\e"
+					"\0\s[31]Careful with the hair.\e"
+					"\0\s[11]\i[6]Careful with the hair.\e"
+					"\0\s[39]I'm not letting you touch my ears, \w3bud.\e"
+					"\0\s[24]\i[5]\i[6]*His nose twitches.\e"
+					"\0\s[27]\i[5]*His nose twitches.\s[27]\e"
+					"\0\s[16]You're weird\w3.\w3.\w3.\e"
+					"\0\s[53]\i[6]You're weird\w3.\w3.\w3.\e"
+					"\0\s[45]You're weird\w3.\w3.\w3.\e"
+					"\0\s[51]\i[6]Really?\w8\w5 Again?\e"
+					"\0\s[54]Really?\w8\w5 Again?\e"
+					"\0\s[1]Hm?\e"
+					"\0\s[34]Huh-\e"
+					"\0\s[35]Hm?\e"
+					"\0\s[54]Again\w4?\w4.\w4.\e"
+					"\0\s[45]Stop trying to be nice\w3.\w3.\w3.\e"
+					"\0\s[16]\i[6]This is not necessary,\w4 bud.\e"
+					"\0\s[36]Didn't I tell you that you don't have to do this?\e"
+					"\0\s[24]\i[6]\i[5]*He sighs.\e"
+					"\0\s[30]\i[6]\i[5]*He sighs.\e"
+					"\0\s[16].\w3.\w3.\e"
+					"\0\s[24]\i[6].\w3.\w3.\e"
+					"\0\s[12].\w3.\w3.\e"
+					"\0\s[27].\w3.\w3.\e"
+					"\0\s[22].\w3.\w3.\e"
+					"\0\s[42]\i[5]*He narrows his eyebrows at you.\s[42]\e"
+					"\0\s[35]\i[5]*He's confused you're still doing this.\s[35]\e"
+					"\0\s[2]\i[6]Hm.\e"
+					"\0\s[22]\i[5]\i[6]*He pretends he didn't like your pat.\e"
+					"\0\s[37]Enough,\w4 enough\w4.\w4.\w4.\e"
+				}
+				else
+				{
+					patme += 1
+					monkeymood += 1
+					frenpoints += 1
+					"\0\s[37]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[12]\i[5]\i[6]*He seems embarrassed.\e"
+					"\0\s[38]\i[6]Dude\w3.\w3.\w3.\e"
+					"\0\s[54]Buddy\w3.\w3.\w3.\e"
+					"\0\s[37]\i[6]%(username)\w3.\w3.\w3.\e"
+					"\0\s[32]Oh hey there.\e"
+					"\0\s[16]\i[6]Really?\w3.\w3.\e"
+					"\0\s[12]\i[6]Why am I still surprised?\e"
+					"\0\s[32]C'mon, \w4kid\w3.\w3.\w3.\e"
+					"\0\s[12]Come on, \w4pal\w3.\w3.\w3.\e"
+					"\0\s[11]\i[6]Careful with the hair.\e"
+					"\0\s[53]\i[6]Careful with the hair.\e"
+					"\0\s[54]\i[6]No touching my ears, \w3bud.\e"
+					"\0\s[24]\i[5]\i[6]*His nose twitches.\e"
+					"\0\s[7]\i[5]*His nose twitches.\s[7]\n\n[half]\w8Pfft.\e"
+					"\0\s[0]\i[5]*His nose twitches.\s[0]\e"
+					"\0\s[53]\i[6]You're weird\w3.\w3.\w3.\e"
+					"\0\s[45]You're weird\w3.\w3.\w3.\e"
+					"\0\s[51]\i[6]Really?\w8\w5 Again?\e"
+					"\0\s[54]Really?\w8\w5 Again?\e"
+					"\0\s[1]Hm?\e"
+					"\0\s[34]Huh-\e"
+					"\0\s[35]Oh?\e"
+					"\0\s[54]Again\w4?\w4.\w4.\e"
+					"\0\s[7]\i[5]*He sighs.\e"
+					"\0\s[2]\i[6]\i[5]*He sighs.\e"
+					"\0\s[16].\w3.\w3.\e"
+					"\0\s[24]\i[6].\w3.\w3.\e"
+					"\0\s[30].\w3.\w3.\e"
+					"\0\s[2]\i[6].\w3.\w3.\e"
+					"\0\s[22].\w3.\w3.\e"
+					"\0\s[2]\i[6]Hm.\e"
+					"\0\s[22]\i[5]\i[6]*He pretends he didn't like your pat.\e"
+					"\0\s[37]Enough,\w4 enough\w4.\w4.\w4.\e"
+					"\0\s[2]\i[6]\i[5]*He smiles.\e"
+					"\0\s[54]My hair gonna get flat\w4.\w4.\w4.\e"
+					"\0\s[13]More?\e"
+					"\0\s[41]\i[6]Still doing this?\e"
+					"\0\s[22]This is not necessary, \w3bud.\e"
+					"\0\s[45]\i[6]You don't have to do this...\e"
+					"\0\s[20]\i[6]Mhm.\e"
+					"\0\s[32]Mhm.\e"
+					"\0\s[53]Fine, \w4fine, \w4\s[52]\i[6]one more.\e"
+					"\0\s[45]Sometimes I wonder if you are mixing me with another mystic monkey\w3.\w3.\w3.\e"
+					"\0\s[50]\i[5]*He smirks.\s[50]\e"
+					"\0\s[2]\i[5]\i[6]*He smiles.\e"
+					"\0\s[13]\i[5]\i[6]*He chuckles.\e"
+					"\0\s[7]\i[5]*He chuckles.\e"
+					"\0\s[12]\i[5]\i[6]*He blushes.\e"
+					"\0\s[41]Enjoying the patting train, \w4%(username)?\e"
+					"\0\s[53]\i[6]Here we go again\w3.\w3.\w3.\e"
+					"\0\s[51]I hope you don't try patting all the demons you meet\w4.\w4.\w4.\e"
+					"\0\s[3]\i[5]*He ducks out of your way.\s[3]\e"
+				}
+			}
+				//Replace these with whatever petting responses you like. You can also add more dialogue here if you want, or cut them down. Though removing them entirely seems a bit counter-intuitive to all that work we've been doing.
+ 			elseif reference4 == "Face" //Another area set up by the collisions in surfaces.txt. You can expand this list with as many elseifs as you need depending on how many collisions you've set up.
+ 			{
+ 				//"\0\s[0]This is petting dialogue for my face.\e"
+ 				//"\0\s[0]This is more petting dialogue for my face.\e"
+ 				//"\0\s[0]This is another bit of petting dialogue for my face. Well, stroking would probably be more accurate.\e"
+				//Replace with appropriate dialogue as needed.
+ 			}
+		}
+			
+ 	}
+ 	else
+	{
+ 		// If the mouse isn't over the ghost, it'll zero out the stroke value.
+		stroke = 0
+ 	}
+}
+
+MouseMoveKero
+ {
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Face" //Put in the name of your collision area you set up for your secondary character here.
+ 			{
+				"\1\s[10]This is a face touching dialogue.\e"
+				"\1\s[10]This is another face touching dialogue.\e"
+				"\1\s[10]This is yet another face touching dialogue.\e"
+				//Replace this dialogue with your secondary character's dialogue.
+ 			}
+			elseif reference4 == "Point" //Like above, put in the name of another collision you set up in surfaces.txt for the secondary character. You can keep adding more elseifs like this for any extra collisions you may have set up.
+			{
+				"\1\s[10]This is a point touching dialogue since I don't really have a head, being a triangle.\e"
+				"\1\s[10]This is another point touching dialogue.\e"
+				"\1\s[10]This is yet another point touching dialogue.\e"
+				//Replace this dialogue as appropriate.
+			}	
+ 		}
+	}
+ 	else
+	{
+ 		// If the mouse isn't over the ghost, it'll zero out the stroke value.
+		stroke = 0
+ 	}
+}
+
+OnMouseDoubleClick
+ {
+	//---- like with the OnMouseMove function above, this determines who the user is clicking on.
+	if reference5 == 0 //checks which button is being used for the click
+	{
+	 	if reference3 == 0 //if the character is 0, aka your main character
+		{
+		MouseDoubleClickSakura
+		}
+		else
+		{
+ 		MouseDoubleClickKero
+		}
+	}
+ }
+
+MouseDoubleClickSakura
+ {
+ 	if reference4 == "Head" || reference4 == "Face" //here, this is checking to see if the user is double clicking on either the character's head OR their face, which for our purposes means they're hitting the ghost. More about operators at the walkthrough.
+	{
+		//"\0\s[0]This is the hitting dialogue.\w8\1\s[15]lol\w8\0\s[9]\n\n[half]Shut up.\e"
+		//"\0\s[0]This is another hitting dialogue.\e"
+		//"\0\s[0]This is yet another bit of text for hitting.\e"
+		//"\0\s[0]This is the fourth hitting dialogue.\e"
+		//Replace this dialogue with appropriate dialogue as you need. You can add more or cut it down if you want, even down to nothing if you want no response from your ghost at all when those areas are double clicked.
+ 	}
+	else
+ 	{
+		//Otherwise, if the user doubleclicks somewhere else on the character, they will open their menu as detailed in menu.dic.
+ 		OpenSakuraMenu
+	}
+ }
+
+MouseDoubleClickKero
+ {
+ 	if reference4 == "Face" //Triangle doesn't have a separate head really, being a triangle, so this only happens if you doubleclick his face.
+	{
+		//"\1\s[10]This is hitting dialogue.\w8\0\s[5]ha ha\w8\1\s[19]\n\n[half]Quiet.\e"
+		//"\1\s[10]This is another hit dialogue.\e"
+		//"\1\s[10]This is yet another hit dialogue.\e"
+		//"\1\s[10]This is the fourth hitting dialogue.\e"
+		//Replace the dialogue here for the second character with whatever you want. What I said above about adding or trimming still holds here.
+ 	}
+	else //Otherwise if you click anywhere else on Triangle's body
+ 	{
+		OpenKeroMenu //This will open his menu set up in menu.dic.
+	}
+ }
+
+Select.catchquestion
+{
+	monkeymood = -40
+	"\![leave,passivemode]\0\s[27]\i[5]*You ask him what he means by 'catch'.\n\n[half]\w8\w8\s[42]Well,\w5 not \f[italic,true]\w2sports\f[italic,false] \w4\s[43]- what's your end goal here? \w8\w6\s[39]To flatten my hair?\w8\w6\i[6] Or to speak to my heart or whatever? \w8\w6\s[50]\i[6]Sorry to tell you,\w4 buddy,\w4 but that won't happen. \w8\w8\s[30]\i[]So\w6.\w6.\w6. \w8\s[28]there's no need for this. \w8\w8\w2\s[27]\i[6]You can stop trying.\e"
+}
+
+Select.catchno
+{
+	monkeymood = -40
+	"\![leave,passivemode]\0\s[27]\i[5]*You tell him there's no catch.\n\n[half]\w8\w8\s[50]R\w1i\w1i\w1i\w1ght,\w3 r\w1i\w1i\w1i\w1ght. \w8\w6\s[51]Sorry,\w3 bud, \w3\i[6]I don't believe you.\w8\w6\s[23]\i[6] People always want something in return.\w8\w6\s[30] So,\w3\s[27] if you're lying,\w5\s[48]\i[6] I'll find it out,\w5\s[48] and I'll find it out quick. \w8\w6Got it?\e"
+	
+}
+
+Select.catchplan
+{
+	monkeymood = -40
+	"\![leave,passivemode]\0\s[27]\i[5]*You tell him it's a part of your master plan.\n\n[half]\w8\w8\s[51]I mean, \w4\s[52]if you're being devious, \w4telling me about your \w3\i[6]\f[italic,true]master plan\f[italic,false] \w3\s[53]is not smart. \w8\w6\i[6]Though, \w4\s[52]\i[6]I'd find out either way, \w4\s[50]so maybe you're smarter than your search history tells me you are.\w8\w6\s[52] Either way, \w4\s[21]\i[6]you can't scam a scammer,\w4 kid.\w8\w6\s[18] I got my eye on you.\e"
+}
+
+Select.catchworry
+{
+	monkeymood = -40
+	"\![leave,passivemode]\0\s[27]\i[5]*You tell him not to worry about it.\n\n[half]\w8\w8\s[48]Really now. \w8\w8\s[43]You really expect me to just \w4\s[25]sit back and \w3\s[24]patiently wait until you drop the other shoe? \w8\w6\s[42]Listen, \w5human \w5- I'm \w4\f[italic,true]watching\f[italic,false]\w4 you.\e"
+}
+
+Select.catchpets
+{
+	monkeymood = -40
+	"\![leave,passivemode]\0\s[27]\i[5]*You tell him you just like patting him on the head.\n\n[half]\w8\w8\s[27]\w8\w6.\w8\w6.\w8\w6.\w8\w6.\w8\w6. \w8\w6\s[50]\i[6]P\w3f\w3f\w3t- \w8\w6\s[50]you're a real piece of work, \w4arent'cha?\w8\w8\s[18] %(username), \w4\s[19]kid, \w4let me give you an advice\w4\s[15]\i[6] - stop trying to be nice. \w8\w8\s[45]Trust me, \w3\s[22]\i[6]it won't do you any good. \w8\w6\s[27]At least with me. \w8\w6\i[6]So. \w8\w6\s[43]\i[6]Don't bother.\e"
+}

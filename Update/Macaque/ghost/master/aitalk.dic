@@ -1,0 +1,774 @@
+﻿//---------------------------AI Talk--------------------------
+//Macman
+//--OnAiTalk
+//Leave this alone.
+//Advanced users, this is mostly setting up whether or not dialogue is in a chain before it displays. Again, you can leave it alone unless you want to screw around with chains for some strange reason.
+
+OnAiTalk
+ {
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+ }
+
+
+//--RandomTalk 
+ //Alright, here we go! This is where ALL your ghost's random dialogue will go! These are the conversations that they'll have with you or each other that pop up depending on the talk rate defined in menu.dic (or if you ignored that, set in bootend.dic in the first boot, which would be every five minutes).
+ 
+
+RandomTalk : nonoverlap_pool
+{
+	if monkeywatch == 0
+	{
+		if monkeymood > 70 && frenpoints > 100
+		{
+			"\0\s[7]\i[5]*He seems relaxed.\e"
+			
+			"\0\s[8]\i[5]\i[6]*He enjoying his time here.\e"
+			
+			"\0\s[7]Remember to take breaks, \w3dude.\e"
+		}
+		if patme > 200 && monkeymood > 0
+		{
+			"\0\s[11]\i[5]\i[6]*He's wondering if you'll pet him again.\e"
+			
+			"\0\s[12]No more messing with my hair, \w4huh?\e"
+			
+			"\0\s[12]\i[6]My head's feeling lonely here\w3.\w3.\w3.\e"
+			
+			"\0\s[11]\i[5]\i[6]*He's thinking about pets. \w8\w6Very loudly. \w8\w6In case it draws your attention.\e"
+		}
+		else
+		{
+			"\0\s[23]\i[5]*Looks like he's thinking about something.\s[23]\e"
+		
+			"\0\s[7]\i[5]*He's enjoying being alive.\s[7]\e"
+			
+			"\0\s[16]\i[5]*He's bored.\s[16]\e"
+			
+			"\0\s[8]\i[5]*He's scheming something.\s[8]\e"
+			
+			"\0\s[13]Why didja call me here again? \w8\w7\s[14]Remind me, \w6\s[3]so I won't do it.\e"
+			
+			"\0\s[16]I was kind of expecting a little more here.\e"
+			
+			"\0\s[20]So, \w5\s[19]you're gonna ask me anything or what?\e"
+			
+			"\0\s[22]\i[5]*He's quiet.\s[22]\e"
+			
+			"\0\s[20]Yunno, \w4\s[19]this is a nice place. \w8\w6\s[7]Nobody here to bother me\w3.\w3.\w3. \w8\w4\s[24]aside for you, \w3I guess.\e"
+			
+			"\0\s[3]I hope you haven't forgotten about me, \w4bud.\e"
+			
+			"\0\s[7]\i[5]*He's relaxing.\s[7]\e"
+			
+			"\0\s[11]\i[5]*He's staring at you.\s[11]\e"
+			
+			"\0\s[18]You got anything to snack on around here, \w3dude? \w8\w4\s[26]I'm getting peckish here.\e"
+			
+			"\0\s[22]\i[5]*He's thinking about the past.\s[22]\e"
+			
+			"\0\s[23]\i[5]\i[6]*He's listening intently.\e"
+			
+			"\0\s[30]How long you'll be keeping me here, \w4bud? \w8\w6\s[27]\i[6]I have some business back home I need to get back to. \w8\w4\s[52]\i[6]Things to steal, \w6people to toy with, \w5stuff like that.\e"
+			
+			"\0\s[22]%(username), huh...\e"
+			
+			"\0\s[20]What's with the face, \w3bud? \w8\w5\s[18]Having trouble focusing?\e"
+			
+			"\0\s[35]This place is a \w2\f[italic,true]mess\w3.\w3.\w3.\f[italic,false]\e"
+			
+			"\0\s[31]\i[5]*He's looking around.\s[31]\e"
+			
+			"\0\s[0]\i[5]\i[6]*You can see his nose twitch.\e"
+			
+			"\0\s[23]\i[5]*You hear him mumble something to himself.\w8\w6\s[23]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2I wonder how the kid's doing\w4.\w4.\w4.\f[sub,false]\e"
+			
+			"\0\s[24]\i[5]\i[6]*You hear him mumble something to himself.\w8\w6\s[24]\i[6]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2need to visit the girl\w4.\w4.\w4.\f[sub,false]\e"
+		
+			//--Chains
+			//Chain dialogue is unique. A dialogue chain consists of multiple bits of dialogue that get called in order over a period of time.
+			
+			//"\0\s[0]This is the first part of a chained dialogue.\w8\1\s[10]Second part to come when we next speak.\e:chain=achain"
+		
+			//"\0\s[0]This will lead to the second piece of chained dialogue.\w8\1\s[10]This will have another chain attached to it.\e:chain=anotherchain"
+		
+		
+			if nowshell == "other" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
+			{
+			//Then these conversations are available! Note the brackets enclosing this set of dialogue.
+			"\0\s[0]Here is dialogue related to the default shell.\w8\1\s[10]You can use this to comment on clothing your ghost is wearing.\e"
+		
+			"\0\s[0]Here is more dialogue related to the default shell.\e"
+			}
+			
+			//month dialogue (turned off)
+			if monthdialogue == 1
+			{
+				if month >= 12
+				{
+					"\0\s[0]This is dialogue for December.\w8\1\s[18]A cold month?\e"
+			
+					"\0\s[0]This is more dialogue for December.\w8\1\s[18]Still cold?\e"
+				}
+				if month == 1
+				{
+					"\0\s[0]This is dialogue for January.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for January.\w8\1\s[10]That it is.\e"
+				}
+				if month == 2
+				{
+					"\0\s[0]This is dialogue for February.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for February.\w8\1\s[10]That it is.\e"
+				}
+				if month == 3
+				{
+					"\0\s[0]This is dialogue for March.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for March.\w8\1\s[10]That it is.\e"
+				}
+				if month == 4
+				{
+					"\0\s[0]This is dialogue for April.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for April.\w8\1\s[10]That it is.\e"
+				}
+				if month == 5
+				{
+					"\0\s[0]This is dialogue for May.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for May.\w8\1\s[10]That it is.\e"
+				}
+				if month == 6
+				{
+					"\0\s[0]This is dialogue for June.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for June.\w8\1\s[10]That it is.\e"
+				}
+				if month == 7
+				{
+					"\0\s[0]This is dialogue for July.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for July.\w8\1\s[10]That it is.\e"
+				}
+				if month == 8
+				{
+					"\0\s[0]This is dialogue for August.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for August.\w8\1\s[10]That it is.\e"
+				}
+				if month == 9
+				{
+				"\0\s[0]This is dialogue for September.\w8\1\s[10]Yup.\e"
+			
+				"\0\s[0]This is more dialogue for September.\w8\1\s[10]That it is.\e"
+				}
+				if month == 10
+				{
+					"\0\s[0]This is dialogue for October.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for October.\w8\1\s[10]That it is.\e"
+				}
+				if month == 11
+				{
+					"\0\s[0]This is dialogue for November.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for November.\w8\1\s[10]That it is.\e"
+				}
+				//These ifs check what day of the week it is.
+				if weekday == 1
+				{
+					"\0\s[0]This is dialogue for Monday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Monday.\w8\1\s[10]That it is.\e"
+				}
+				if weekday == 2
+				{
+					"\0\s[0]This is dialogue for Tuesday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Tuesday.\w8\1\s[10]That it is.\e"
+				}
+				if weekday == 3
+				{
+					"\0\s[0]This is dialogue for Wednesday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Wednesday.\w8\1\s[10]That it is.\e"
+				}
+				if weekday == 4
+				{
+					"\0\s[0]This is dialogue for Thursday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Thursday.\w8\1\s[10]That it is.\e"
+				}
+				if weekday == 5
+				{
+					"\0\s[0]This is dialogue for Friday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Friday.\w8\1\s[10]That it is.\e"
+				}
+				if weekday == 6
+				{
+					"\0\s[0]This is dialogue for Saturday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Saturday.\w8\1\s[10]That it is.\e"
+				}
+				if weekday == 0
+				{
+					"\0\s[0]This is dialogue for Sunday.\w8\1\s[10]Yup.\e"
+			
+					"\0\s[0]This is more dialogue for Sunday.\w8\1\s[10]That it is.\e"
+				}
+			}
+			
+			//These ifs check for the time of day as defined in bootend.dic. Do you remember the words used for each chunk of time in GetTimeSlot? These are the same words!
+			if timeslot == "earlymorning"
+			{
+				"\0\s[31]Sun's coming up\w3.\w3.\w3. \w8\w5\s[30]Not a big fan.\e"
+			
+			//	"\0\s[0]This is more dialogue for early morning.\w8\1\s[10]That it is.\e"
+			}
+			if timeslot == "morning"
+			{
+				"\0\s[27]\i[6]It's too early for this\w3.\w3.\w3.\e"
+			
+				"\0\s[45]The sun\w3.\w3.\w3.\e"
+			}
+			if timeslot == "lunch"
+			{
+				"\0\s[46]You should eat lunch. \w8\w5\s[7]Maybe share some with me, \w4too.\e"
+			
+			//	"\0\s[0]This is more dialogue for lunch time.\w8\1\s[10]That it is.\e"
+			}
+			if timeslot == "afternoon"
+			{
+				"\0\s[36]\i[5]*He sighs.\s[36]\e"
+			
+			//	"\0\s[0]This is more dialogue for the afternoon.\w8\1\s[10]That it is.\e"
+			}
+			if timeslot == "evening"
+			{
+				"\0\s[13]Sun's setting, \w5\s[18]finally.\e"
+			
+				"\0\s[7]\i[5]*It seems he's more relaxed now. \w8\w5You wonder if it's because its getting late in the day.\e"
+			}
+			if timeslot == "latenight"
+			{
+				"\0\s[9]Ah, \w4\s[3]my favourite time of day.\e"
+			
+				"\0\s[7]Hello, \w4darkness, \w4my old friend\w3.\w3.\w3.\e"
+			
+				"\0\s[35]I wonder if you can see the moon\w4.\w4.\w4.\e"
+			}
+			if timeslot == "midnight"
+			{
+				"\0\s[8]Midnight. \w8\w5\s[4]The greatest time for demons.\e"
+			
+				//"\0\s[0]This is more dialogue for midnight.\w8\1\s[10]That it is.\e"
+			}
+		
+			//"\0\s[0]\f[height,20]These words are really large.\f[height,default]\w8\1\s[10]These words are a normal size. \w8\f[height,6]These words are small.\f[height,default]\e"
+			
+			//"\0\s[0]\f[strike,true]These words are struck out.\f[strike,default]\w8\1\s[10]\f[sub,true]These words are a subscript.\f[sub,false] \f[sup,true]These words are a superscript.\f[sup,false] \f[underline,true]These words are underlined.\f[underline,default] \f[bold,true]These words are bold.\f[bold,false] \f[italic,true]These words are italic.\f[italic,false] \f[color,186,146,112]These words are a color.\f[color,default] This tag would return to default.\f[default]\e"
+		}
+	}
+	else
+	{
+		
+			if watchmacwatchscreen == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]*He's watching your screen intently.\s[56]\e"
+				"\0\s[56]What's that?\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[60]\i[5]*He looks at your face.\s[60]\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[58]E\w1h\w1h\w1h, \w3nah.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[57]Kinda.\e"
+				"\0\s[56]\i[5]*He's amused by your screen.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque if he likes what's going on. \n\n[half]\s[57]I guess.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he likes what's going on. \n\n[half]\s[57]Yeah, \w3sure, \w3kid.\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[58]Your screen is a mess, \w3\s[59]you know that?\e"
+				"\0\s[56]\i[5]*He's wondering what is going on.\s[56]\e"
+				"\0\s[56]\i[5]*He's relaxed.\s[56]\e"
+			}
+			elseif watchmacmusic == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[57]Can you put on that song there next?\e"
+				"\0\s[59]This is catchy, \w3I'll admit.\e"
+				"\0\s[60]This might get stuck in my head for days now\w3.\w3.\w3.\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[60]\i[5]*You ask Macaque if he likes this song. \w8\w4\n\n[half]\s[57]It's fine.\e"
+				"\0\s[60]\i[5]*You ask Macaque if he likes this song. \w8\w4\n\n[half]\s[59]I guess it's passable.\e"
+				"\0\s[60]\i[5]*You ask Macaque if he likes this song. \w8\w4\n\n[half]\s[60]Bleh.\e"
+				"\0\s[56]\i[5]*He's listening to the music.\s[56]\e"
+				"\0\s[56]\i[5]*He's judging your playlist.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about this song.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the melody.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the lyrics.\s[56]\e"
+				"\0\s[57]How is this song called again?\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[56]Hm\w3.\w3.\w3.\e"
+				"\0\s[60]Can you bring the volume down, \w3bud? \w8\w6\s[57]Some of us have six ears, \w3yunno.\e"
+				"\0\s[60]Can you bring the volume down, \w3bud?\e"
+				"\0\s[56]\i[5]*He's nodding off.\s[56]\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's amused that you want to listen to music with him.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[125]Those lyrics\w5.\w5.\w5.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[61]What is this song?\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[59]The lenght of your playlist.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[59]Your music tastes, \w3bud.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[60]Hm? \w8\w6\s[57]I drifted off there.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]That song Bai He wanted me to listen to kinda sounded like this.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]What I'll be having for dinner.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]How I can torture folks with this song.\e"
+			}
+			elseif watchmacdraw == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[56]You missed a spot.\e"
+				"\0\s[60]You still going, \w3bud?\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[58]\w8\w8\w8\s[56]\i[5]\w8\w6\w8\w4*You ask him if he wants anything.\n\n[half]\w8\w4\s[58]No. \w3\s[59]I just enjoy watching your face while you suffer.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[57]Surprisingly, \w3no.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[57]Kinda.\e"
+				"\0\s[56]\i[5]*He's amused by your drawing.\s[56]\e"
+				"\0\s[56]\i[5]*He's looking at the canvas.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about what you're drawing.\s[56]\e"
+				"\0\s[58]What's that weird looking thing supposed to be again?\e"
+				"\0\s[57]This colour looks kinda good.\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[56]Hm\w3.\w3.\w3.\e"
+				"\0\s[58]You're actually doing fine, \w3bud.\e"
+				"\0\s[59]Not too shabby, \w3%(username).\e"
+				"\0\s[56]\i[5]*He's wondering if he can ask you to draw something for him.\s[56]\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's taking the canvas in.\s[56]\e"
+				"\0\s[56]\i[5]*He's amused that you wanted him to watch you draw things.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]Pictures that MK draws.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]Bai He likes to draw, \w3too.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[61]You really need all those brushes?\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]My next scheme.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]Peaches.\e"
+			}
+			elseif watchmacgames == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[57]What's that?\e"
+				"\0\s[56]C'mon, \w3bud.\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[60]\i[5]*He's watching your face as you play.\s[60]\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[56]Nuhuh.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[56]Eyes on thee game, \w3kid.\e"
+				"\0\s[56]I made better\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*He's watching the game.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the gameplay.\s[56]\e"
+				"\0\s[57]How is this game called again?\e"
+				"\0\s[56]\i[5]*He's mocking your gamer skills in his head.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[59]Betcha I can do better than you.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]The artstyle of this game can use some improvment. \w8\w6\s[59]Just like your gaming skills.\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[56]What the-\e"
+				"\0\s[58]Don't forget to save.\e"
+				"\0\s[56]%(username), \w3look out!\e"
+				"\0\s[56]Okay?\w3.\w3.\e"
+				"\0\s[56]\i[5]*He's wondering what is going on.\s[56]\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's taking the game in.\s[56]\e"
+				"\0\s[56]\i[5]*He's amused that you wanted him to watch you play.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]Either controls in this game are wonky, \w3\s[59]or you got weird way to play, \w3dude.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]Bananas.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]I'm trying to remember where I put my staff\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]DLC.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[58]Your miserable gaming skills.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[60]Your taste in games\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]New and improved gameplay.\e"
+			}
+			elseif watchmacmovies == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[57]Wh\w2a\w2a\w2a\w2a\w2t's going on again?\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[56]The plot thickens\w3.\w3\w3.\e"
+				"\0\s[56]\i[5]*He lost the plot.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[57]Nah.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[60]Maybe.\e"
+				"\0\s[56]\i[5]*He's enjoying the movie.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the plot.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the last scene.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about what may happen next.\s[56]\e"
+				"\0\s[57]How is this movie called again?\e"
+				"\0\s[56]\i[5]*He's thinking about the protagonist.\s[56]\e"
+				"\0\s[56]I like the antagonist. \w8\w4Solid.\e"
+				"\0\s[56]Can you pause for a sec? \w8\w8\w3.\w3.\w3.\w3.\w3.\w3.\w3.\w3.\w8\w6\w8\w4\s[57]Aha, \w3resume now.\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[56]Uhh- \w8\s[57]rewind that. \w8\w8\s[56]Ah.\e"
+				"\0\s[56]Hm\w3.\w3.\w3.\e"
+				"\0\s[56]Aha\w3.\w3.\w3.\e"
+				"\0\s[56]Pfft.\e"
+				"\0\s[56]Interesting\w3.\w3.\w3.\e"
+				"\0\s[58]Everything just got a lot more interesting\w3.\w3.\w3.\e"
+				"\0\s[56]Uh, \w3okay?\w3.\w3.\e"
+				"\0\s[56]\i[5]*He's wondering what is going on.\s[56]\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's taking the movie in.\s[56]\e"
+				"\0\s[56]\i[5]*He's amused you wanted to show him this.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]I'm watching something here, \w3bud.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[60]This is kind of boring\w3.\w3.\w3.\e"
+				"\0\s[56]I feel like I've seen something like this before\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[58]The plot. \w8\w5\s[57]Stuff's wild, \w3dude.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[56]What I'll have for lunch.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]Monkey stuff.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]I can rip this off\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[58]This is amusing.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[60]Your taste in movies\w3.\w3.\w3.\e"
+			}
+			elseif watchmacvideos == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[56]What was that?\e"
+				"\0\s[56]The plot thickens\w3.\w3\w3.\e"
+				"\0\s[56]Hm?\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[60]\w8\w8\w8\s[56]\w8\w8\w5\w8\w4\i[5]*You ask him if he wants anything.\n\n[half]\w8\w4\s[60]Hm? \w8\w6\s[58]Nah, \w3\s[59]I just wanted to see your reaction to this bit.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[56]Nuhuh. \w8\w4\[57]At least not yet.\e"
+				"\0\s[56]\i[5]*He's amused that you wanted to show him this.\s[56]\e"
+				"\0\s[56]\i[5]*He's immersed.\s[56]\e"
+				"\0\s[58]Can you pause for a bit? \w8\w8\s[56]\w3.\w3.\w3.\w3.\w3.\w3.\w3.\w3.\w8\w6\w8\w4\s[57]Okay, \w3go.\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[57]Rewind that. \w8\w8\s[56]Oh. \w8\w8Okay.\e"
+				"\0\s[56]\i[5]*He's thinking about the last video you watched.\s[56]\e"
+				"\0\s[56]Oh\w3.\w3.\w3.\e"
+				"\0\s[56]Interesting\w3.\w3.\w3.\e"
+				"\0\s[56]Huh\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*He's wondering what is going on.\s[56]\e"
+				"\0\s[56]\i[5]*He's wondering if you'll show him more.\s[56]\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's taking the video in.\s[56]\e"
+				"\0\s[56]\i[5]*He's amused you wanted to watch this with him.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]I'm watching something here, \w4bud.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[60]This is kind of boring\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[58]This is actually quite interesting\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]Food.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]Stuff.\e"
+				"\0\s[57]What is this about, \w3exactly?\e"
+			}
+			elseif watchmacwrite == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[57]You missed something, \w4\s[59]but I won't tell ya what it is.\e"
+				"\0\s[56]Typ\w1o\w1o\w1o\w1o\w1o\w1o.\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[58]\w8\w8\w8\s[56]\w8\w8\w8\w4*You ask him if he wants anything.\n\n[half]\w8\w4\s[58]Oh? \w8\w4No, \w3\s[59]I'm just looking at your thinking face.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[60]Watching you slowly type? \w8\w6\s[61]What do you think?\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[58]This is actually amusing.\e"
+				"\0\s[56]\i[5]*He's amused you want him to see this.\s[56]\e"
+				"\0\s[56]\i[5]*He's looking at this page.\s[56]\e"
+				"\0\s[56]\i[5]*He's rereading the last sentence.\s[56]\e"
+				"\0\s[56]\i[5]*He's predicting your plot twist.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the previous page.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about what you're writing.\s[56]\e"
+				"\0\s[60]What's this supposed to be again?\e"
+				"\0\s[61]This font is kind of boring.\e"
+				"\0\s[59]You're still doing this?\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[56]Hm\w3.\w3.\w3.\e"
+				"\0\s[59]You're not that bad, \w3kid.\e"
+				"\0\s[58]Not too shabby, \w3%(username).\e"
+				"\0\s[56]\i[5]*He's wondering if you'll make him read the whole thing when it's finished.\s[56]\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's taking the writing in.\s[56]\e"
+				"\0\s[56]\i[5]*He's amused by your writing.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[61]What is this pacing?\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]Editing this will be a pain\w3.\w3.\w3. \w8\w4\s[58]For you.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[57]That word count\w3.\w3.\w3.\e"
+				"\0\s[56]What is this about again?\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[58]The way you write.\e"
+			}
+			elseif watchmacwatchhome == 1
+			{
+				//"\0\s[56]\i[5].\e"
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+				"\0\s[57]You missed something, \w4\s[59]but I won't tell ya what it is.\e"
+				"\0\s[56]Typ\w1o\w1o\w1o\w1o\w1o\w1o.\e"
+				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
+				"\0\s[58]\w8\w8\w8\s[56]\w8\w8\w8\w4*You ask him if he wants anything.\n\n[half]\w8\w4\s[58]Oh? \w8\w4No, \w3\s[59]I'm just enjoying the pained look on your face.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[60]By your homework? \w8\w6\s[61]Take a guess, \w3bud.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[58]Watching your struggle is amusing, \w3actually.\e"
+				"\0\s[56]\i[5]*He's wondering why you want him to watch this.\s[56]\e"
+				"\0\s[56]\i[5]*He's looking at this page.\s[56]\e"
+				"\0\s[56]\i[5]*He's rereading the last sentence.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about what you're supposed to do.\s[56]\e"
+				"\0\s[57]What subject is this again?\e"
+				"\0\s[60]Are you done yet?\e"
+				"\0\s[59]You're still doing this?\e"
+				"\0\s[56]\i[5]*He's chilling.\s[56]\e"
+				"\0\s[56]Hm\w3.\w3.\w3.\e"
+				"\0\s[56]Uh\w3.\w3.\w3.\e"
+				"\0\s[59]C'mon, \w3kid.\e"
+				"\0\s[57]You still stuck on this?\e"
+				"\0\s[58]Almost there, \w3%(username).\e"
+				"\0\s[56]\i[5]*He's deep in his thoughts.\s[56]\e"
+				"\0\s[56]\i[5]*He's thinking about the task.\s[56]\e"
+				"\0\s[58]\i[5]*He's amused by the look on your face.\s[56]\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[61]What is this supposed to teach ya?\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[59]I'm glad I dropped out of college.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[60]When's your training homework gonna start? \w8\w6\s[59]I'd watch that.\e"
+				"\0\s[56]What is this about again?\w3.\w3.\w3.\e"
+				"\0\s[56]\i[5]*You ask Macaque what he's thinking about.\w8\w4\n\n[half]\s[59]Wondering when you're gonna figure this out.\e"
+				"\0\s[56]\i[5]*You ask if Macaque can help you.\w8\w4\n\n[half]\s[58]Sorry, \w3kid, \w3\s[59]that's not my major.\e"
+				"\0\s[56]\i[5]*You ask if Macaque can help you.\w8\w4\n\n[half]\s[58]\i[6]Let me think\w3.\w3.\w3. \w8\w8\s[57]Nah.\e"
+				"\0\s[56]\i[5]*You ask if Macaque can help you.\w8\w4\n\n[half]\s[58]The answer is six.\e"
+				"\0\s[56]\i[5]*You ask if Macaque can help you.\w8\w4\n\n[half]\s[58]The answer is 'potatoes'.\e"
+				"\0\s[56]\i[5]*You ask if Macaque can help you.\w8\w4\n\n[half]\s[58]The anwer is 'no'.\e"
+				"\0\s[56]\i[5]*You ask if Macaque can help you.\w8\w4\n\n[half]\s[59]Just google it, \w3bud.\e"
+			}
+			else
+			{
+				"\0\s[56]\i[5]*He's watching your screen intently.\s[56]\e"
+			}
+
+	}
+}
+
+
+//--Chains
+//Here is where you will put your bits of chain dialogue. They are outside of OnAiTalk, which makes them a bit more flexible as I mentioned above.
+//Each chain function will go through each part of the chain in order even if it's in one function, until it goes to \e:chain=end which will end the chain, as you could probably guess. So you can put the entire chain dialogue into one place.
+
+achain
+{{CHAIN
+	//this will happen the first time the chain is called
+	"\0\s[0]Here is the second part of the chain.\w8\1\s[10]Will there be more?\e"
+	
+	//they will then go to this dialogue next
+	"\0\s[0]This is the third part of chained dialogue.\1\w8\s[10]This will lead to a fourth part.\e"
+	
+	//this will be the last piece of dialogue in the chain, then they will go back to their normal dialogue
+	"\0\s[0]This is the fourth piece of chained dialogue.\1\w8\s[10]This is the end.\e:chain=end"
+}}CHAIN
+
+anotherchain
+{{CHAIN
+	"\0\s[0]This is the second example of chained dialogue.\1\w8\s[10]This will only have two parts.\e"
+	
+	"\0\s[0]This is the last piece of the second example of chained dialogue\1\w8\s[10]This will end here.\e:chain=end"
+}}CHAIN
+
+
+
+//-OnMinuteChange
+//These are time-related bits of dialogue for your ghost to say. If you're uninterested, you can delete it all except for a line for MikireTalk. So it'd look something like
+
+//OnMinuteChange
+//{
+//HourCheck
+//--
+//if mikireflag == 1
+// 	{
+// 		MikireTalk
+//	}
+//}
+
+//But I think these are kind of neat, so I'd leave them myself.
+
+
+//Keeps track of if an hour has passed. Just ignore this.
+HourCheck
+{
+if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+
+OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
+ {
+	HourCheck //checks to see if an hour has passed, ignore it
+	--
+ 	if minute == 0 && timecheckers == 1 && monkeywatch == 0 //These ifs will check what time it is. Here, it's seeing if the minute equals zero...
+	{
+ 		if hour == 12 //And the hour equals 12, meaning it's noon. You can change this to some other hour if you want.
+		{
+ 			"\0\s[0]It's noon. \w8\w5\s[48]\i[6]Bleh. \w8\w5\s[31]I hope there's a nice shade to hide in around here, \w4at least.\e"
+			//Replace with appropriate dialogue as you want.
+		}
+ 		elseif hour == 0 //If the hour is zero, aka midnight. Again, you can change this to whatever hour you want to check for. This section is flexible! You can also add more elseifs if you want to check for other hours.
+		{
+ 			"\0\s[19]It's midnight! \w8\w4\s[26]O\w2o\w2o\w2o\w2r \s[7]Macaque hour, \w5how I like to call it.\e"
+ 			//"\0\s[0]This is another bit of dialogue for midnight.\w8\1\s[10]BooooOoooOOOooOOOOo.\e"
+ 			//"\0\s[0]This is the third bit of dialogue for midnight.\e"
+			//Then replace the dialogue with what's appropriate.
+		}
+		else
+		{
+			"\0\%(timeposechange)It's %(hour12)'o clock.\e"
+			//%(hour12) stores the time. This is a general top of the hour notification. I personally like this because it helps me keep track of time when I've been working on something, so when a ghost is all "Hey it's 3 o clock" I can be like woah really when did that happen. If you think this is annoying though, you can just delete this bit of dialogue to leave this else statement blank, or leave "" in here instead.
+		}
+	}
+	elseif minute == 0 && timecheckers == 1 && monkeywatch == 1 //These ifs will check what time it is. Here, it's seeing if the minute equals zero...
+	{
+ 		if hour == 0 //If the hour is zero, aka midnight. Again, you can change this to whatever hour you want to check for. This section is flexible! You can also add more elseifs if you want to check for other hours.
+		{
+ 			"\0\s[56]It's midnight. \w8\w4\s[58]My time.\e"
+ 			//"\0\s[0]This is another bit of dialogue for midnight.\w8\1\s[10]BooooOoooOOOooOOOOo.\e"
+ 			//"\0\s[0]This is the third bit of dialogue for midnight.\e"
+			//Then replace the dialogue with what's appropriate.
+		}
+		else
+		{
+			"\0\s[56]It's %(hour12)'o clock.\e"
+			//%(hour12) stores the time. This is a general top of the hour notification. I personally like this because it helps me keep track of time when I've been working on something, so when a ghost is all "Hey it's 3 o clock" I can be like woah really when did that happen. If you think this is annoying though, you can just delete this bit of dialogue to leave this else statement blank, or leave "" in here instead.
+		}
+	}
+	//You can also check for more specific times! For example...
+	//elseif hour == 23 && minute == 55 //this checks to see if the hour is 23 and the minutes are at 55... essentially, 11:55 pm.
+	//{
+		//"\0\s[0]5 minutes to midnight.\e"
+		//Replace with what you like!
+	//}
+	//elseif hour == 7 && minute == 30 && weekday == 0 //Here, it's checking for a specific time on a specific day. You can add things to your time checks just like this by using the AND operator, && (more about operators at the walkthrough page). This adds up to 7:30 am, Sunday. If you have a favorite TV program on at some time, you could have your ghost comment on when it comes on like this.
+	//{			
+		//"\0\s[0]It's 7:30 on Sunday.\e"
+		//Replace with what's appropriate.
+	//}
+	//If you're not interested in these more specific checks, you can delete those last two elseifs and just leave the one for minute==0, or clear them all out as mentioned above, although leave in the HourCheck and mikireflag bits.
+	
+	//Don't touch this part.
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+ }
+
+//--OnSecondChange
+//Like the above, this handles what happens every time a second goes by. Most of this you will not have to touch.
+
+OnSecondChange
+ {
+	if passsec == 59
+ 		{
+	 	passsec = 0
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 0 && reference1 == 1 //Dialogue for putting them off the screen. You could make this a unique line if you wanted (Like "Hey! What are you doing?"), and have MikireTalk below be for if they continue to be offscreen ("Why are you leaving me out here? Help!" for example). I'll add an example bit of dialogue and comment it out, you can uncomment it and use it if you like, or just leave it out and use MikireTalk below.
+	{
+		//"\0\s[0]You've moved me off screen."
+		
+		MikireTalk
+	}
+	if mikireflag == 1 && reference1 == 0 //Dialogue for coming back on the screen
+	{
+		EndMikireTalk
+	}
+	mikireflag = reference1 //reference1 is if the ghost is offscreen or not
+	if reference2 == 1
+	{
+ 		//This dialogue is for when the two characters are overlapping each other. If you don't want your characters to care, you can just leave this blank.
+		
+ 		//"\0\s[0]Me and Triangle are overlapping.\w8\1\s[19]That's strange since your resolution is %screenwidthx%screenheight, %(username). Shouldn't we have enough space?\4\e"
+		
+		//You can see here the use of two envelopes, screenwidth and screenheight, to tell the user their resolution. Oddly, they are not in parentheses. I'm not sure why this is, but they don't display right otherwise. An odd quirk with these two envelopes.
+		//Note also how Triangle moves away at the end of the dialogue. This is due to the \4 tag. That will make any one character move away from the other if they are able. I talked about this tag and its counterpart tag \5 in the SakuraScript page on the walkthrough.
+	}
+ }
+
+ //---- MikireTalk ---------------------------------------------------------------------
+ //MikireTalk is dialogue for when your main character is off-screen. Like if you dragged Girl over to the side of your monitor until she was partially concealed by it.
+ 
+MikireTalk
+ {
+	"\0\s[0]Are you trying to cast me to the shadow realm that is off-screen?"
+	"\0\s[11]Is my tail off-screen again?"
+	//Note the hotkey combo Triangle mentions. He's telling the truth, that should bring her back on the screen.
+ }
+
+ //----EndMikireTalk--------------------------------------------------------------------
+ //For after you bring the character back on screen.
+ 
+EndMikireTalk
+ {
+	"\0\s[9]I'm back. \w8\w6\s[13]It will take more than that to get rid of me.\e"
+ }
+
+
+//**** OnSurfaceRestore *****************************************************************
+//OnSurfaceRestore is a handy function. What this does is that after a short period of time, the ghost will go back to its default pose, so you won't have a ghost stuck in one expression for too long. It's also helpful if you've made one of the characters disappear using \s[-1] in dialogue and didn't bring them back at the end of it. This will do that for you.
+//I'm going to comment out the if/else statements in this because the circumstances in which they'd come up seem pretty unlikely and unnecessary if you're just going to be making a simple ghost. You can just leave this function alone and move on if you want. However, if you do want to use them, just uncomment the lines by deleting the slashes and fill in the info as you need.
+
+//*********************Advanced User Info*******************************
+//You can put if statements in OnSurfaceRestore to make exceptions for certain poses, or to make sure that once they're in a certain pose, they stay in that pose. For example, if you turn my Hunter and Smoker ghost into eggplants, there's a check for the their eggplant pose numbers to make sure they STAY eggplants when OnSurfaceRestore is called.
+//You can also use OnSurfaceRestore to clean up things that might be left on the screen, primarily from using p[number]\s[] to call up other objects or characters. Just make sure to add a p[number]\s[-1] to OnSurfaceRestore, and that should get rid of it each time the ghost cleans itself up.
+//***********************************************************************
+
+OnSurfaceRestore
+ {
+ 	//if reference0 == 4 || reference0 == 6 //This is checking what poses they are in. This looks to see if Girl is in pose 4 or pose 6, since she is reference0.
+ 	//{
+ 	//"\1\s[10]You're in a sad pose.\w8\0\s[0]I'll go back to normal then.\e"
+ 	//}
+ 	//elseif reference1 == 14 || reference1 == 16 //This is doing the same but for Triangle, since he's reference1. It looks to see if he's in pose 14 or post 16.
+ 	//{
+ 	//"\0\s[0]You look sad.\w8\1\s[10]I'll go back to normal.\e"
+ 	//}
+ 	//else
+ 	//{
+	//IDLE POSES
+	if monkeywatch == 1
+	{"\0\s[56]\1\s[10]"}
+	else
+	{"\0\%(idleposechange)\1\s[10]\e"}
+	//}
+ }
+
+ 
+ //--OnKeyPress
+ //This defines the hotkeys your ghost will use. You can change these to whatever you want, but I don't really know why you would. I'd just leave this alone. Advanced Users can add new hotkeys attached to whatever function if you want.
+ 
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}
