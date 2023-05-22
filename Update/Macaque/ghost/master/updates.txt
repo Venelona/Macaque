@@ -7,7 +7,7 @@ file,ghost/master/bootend.dicba756f6e174f465d30de41dbe377889fsize=27990date=2
 file,ghost/master/commu.dic1f30b0144a12c26122252f8e40ce1b8esize=7018date=2023-05-17T21:45:57
 file,ghost/master/descript.txte0b612fc2e12f200a1b27da8d542a2e1size=2615date=2023-05-17T20:04:01
 file,ghost/master/etc.dicc127d0e10bc2c40aef497e05f1597432size=36597date=2023-05-17T21:35:45
-file,ghost/master/menu.dic0cb668224f5e8af2327bbad2a673ac93size=58348date=2023-05-22T22:54:23
+file,ghost/master/menu.dic95e46f952e2355b0770e0eafa70e5a4esize=58346date=2023-05-22T22:59:36
 file,ghost/master/mouse.dic23c893d8eb98abdedebc887bf36b14basize=20852date=2023-05-18T20:07:53
 file,ghost/master/nameteach.dic2a1ce295fb4ec24f41f236deaf43e51asize=9735date=2023-05-16T23:54:30
 file,ghost/master/string.dic28147ca16d8b849b29e40af165409839size=7995date=2023-05-18T19:51:07
