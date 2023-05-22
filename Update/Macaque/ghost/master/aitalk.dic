@@ -65,6 +65,49 @@ RandomTalk : nonoverlap_pool
 			"\0\s[36]\i[5]*He's wondering what would make you want to pet him in the first place.\s[36]\e"
 			
 			"\0\s[11]\i[5]\i[6]*He's thinking about pets.\e"
+			
+			
+			"\0\s[23]\i[5]*Looks like he's thinking about something.\s[23]\e"
+		
+			"\0\s[7]\i[5]*He's enjoying being alive.\s[7]\e"
+			
+			"\0\s[8]\i[5]*He's scheming something.\s[8]\e"
+			
+			"\0\s[13]Why didja call me here again? \w8\w7\s[14]Remind me, \w6\s[3]so I won't do it.\e"
+			
+			"\0\s[16]I was kind of expecting a little more here.\e"
+			
+			"\0\s[20]So, \w5\s[19]you're gonna ask me anything or what?\e"
+			
+			"\0\s[22]\i[5]*He's quiet.\s[22]\e"
+			
+			"\0\s[20]Yunno, \w4\s[19]this is a nice place. \w8\w6\s[7]Nobody here to bother me\w3.\w3.\w3. \w8\w4\s[24]aside for you, \w3I guess.\e"
+			
+			"\0\s[3]I hope you haven't forgotten about me, \w4bud.\e"
+			
+			"\0\s[11]\i[5]*He's staring at you.\s[11]\e"
+			
+			"\0\s[18]You got anything to snack on around here, \w3dude? \w8\w4\s[26]I'm getting peckish here.\e"
+			
+			"\0\s[22]\i[5]*He's thinking about the past.\s[22]\e"
+			
+			"\0\s[23]\i[5]\i[6]*He's listening intently.\e"
+			
+			"\0\s[30]How long you'll be keeping me here, \w4bud? \w8\w6\s[27]\i[6]I have some business back home I need to get back to. \w8\w4\s[52]\i[6]Things to steal, \w6people to toy with, \w5stuff like that.\e"
+			
+			"\0\s[22]%(username), huh...\e"
+			
+			"\0\s[20]What's with the face, \w3bud? \w8\w5\s[18]Having trouble focusing?\e"
+			
+			"\0\s[35]This place is a \w2\f[italic,true]mess\w3.\w3.\w3.\f[italic,false]\e"
+			
+			"\0\s[31]\i[5]*He's looking around.\s[31]\e"
+			
+			"\0\s[0]\i[5]\i[6]*You can see his nose twitch.\e"
+			
+			"\0\s[23]\i[5]*You hear him mumble something to himself.\w8\w6\s[23]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2I wonder how the kid's doing\w4.\w4.\w4.\f[sub,false]\e"
+			
+			"\0\s[24]\i[5]\i[6]*You hear him mumble something to himself.\w8\w6\s[24]\i[6]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2need to visit the girl\w4.\w4.\w4.\f[sub,false]\e"
 		}
 		if patme > 200 && monkeymood > 0
 		{
@@ -75,8 +118,51 @@ RandomTalk : nonoverlap_pool
 			"\0\s[12]\i[6]My head's feeling lonely here\w3.\w3.\w3.\e"
 			
 			"\0\s[11]\i[5]\i[6]*He's thinking about pets. \w8\w6Very loudly. \w8\w6In case it draws your attention.\e"
+			
+			
+			"\0\s[23]\i[5]*Looks like he's thinking about something.\s[23]\e"
+		
+			"\0\s[7]\i[5]*He's enjoying being alive.\s[7]\e"
+			
+			"\0\s[8]\i[5]*He's scheming something.\s[8]\e"
+			
+			"\0\s[13]Why didja call me here again? \w8\w7\s[14]Remind me, \w6\s[3]so I won't do it.\e"
+			
+			"\0\s[16]I was kind of expecting a little more here.\e"
+			
+			"\0\s[20]So, \w5\s[19]you're gonna ask me anything or what?\e"
+			
+			"\0\s[22]\i[5]*He's quiet.\s[22]\e"
+			
+			"\0\s[20]Yunno, \w4\s[19]this is a nice place. \w8\w6\s[7]Nobody here to bother me\w3.\w3.\w3. \w8\w4\s[24]aside for you, \w3I guess.\e"
+			
+			"\0\s[3]I hope you haven't forgotten about me, \w4bud.\e"
+			
+			"\0\s[11]\i[5]*He's staring at you.\s[11]\e"
+			
+			"\0\s[18]You got anything to snack on around here, \w3dude? \w8\w4\s[26]I'm getting peckish here.\e"
+			
+			"\0\s[22]\i[5]*He's thinking about the past.\s[22]\e"
+			
+			"\0\s[23]\i[5]\i[6]*He's listening intently.\e"
+			
+			"\0\s[30]How long you'll be keeping me here, \w4bud? \w8\w6\s[27]\i[6]I have some business back home I need to get back to. \w8\w4\s[52]\i[6]Things to steal, \w6people to toy with, \w5stuff like that.\e"
+			
+			"\0\s[22]%(username), huh...\e"
+			
+			"\0\s[20]What's with the face, \w3bud? \w8\w5\s[18]Having trouble focusing?\e"
+			
+			"\0\s[35]This place is a \w2\f[italic,true]mess\w3.\w3.\w3.\f[italic,false]\e"
+			
+			"\0\s[31]\i[5]*He's looking around.\s[31]\e"
+			
+			"\0\s[0]\i[5]\i[6]*You can see his nose twitch.\e"
+			
+			"\0\s[23]\i[5]*You hear him mumble something to himself.\w8\w6\s[23]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2I wonder how the kid's doing\w4.\w4.\w4.\f[sub,false]\e"
+			
+			"\0\s[24]\i[5]\i[6]*You hear him mumble something to himself.\w8\w6\s[24]\i[6]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2need to visit the girl\w4.\w4.\w4.\f[sub,false]\e"
 		}
-		else
+		if monkeymood > 0
 		{
 			"\0\s[23]\i[5]*Looks like he's thinking about something.\s[23]\e"
 		
@@ -655,6 +741,10 @@ OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
 			"\0\%(timeposechange)It's %(hour12)'o clock.\e"
 			//%(hour12) stores the time. This is a general top of the hour notification. I personally like this because it helps me keep track of time when I've been working on something, so when a ghost is all "Hey it's 3 o clock" I can be like woah really when did that happen. If you think this is annoying though, you can just delete this bit of dialogue to leave this else statement blank, or leave "" in here instead.
 		}
+	}
+	elseif monkeywatch == 1
+	{
+		monkeymood += 1
 	}
 	elseif minute == 0 && timecheckers == 1 && monkeywatch == 1 //These ifs will check what time it is. Here, it's seeing if the minute equals zero...
 	{

@@ -62,8 +62,8 @@ MenuRun
 		//This option will force the ghost to say something from aitalk if the user clicks it. Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. IF you don't want two options for captions, delete one of the lines.
 		//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, as long as you separate it from the other options into its own section with two dashes above and below.
 		//--
-		"You can...\n\n[half]\![*]\q[Talk,talkstuff]\n\n"
-		//\![*]\q[Interact,interactstuff]\n\n"
+		"You can...\n\n[half]\![*]\q[Talk,talkstuff]\n/
+		\![*]\q[Interact,interactstuff]\n\n"
 		--
 		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n/
 		\![*]\q[Run errands,dosomething]\n\n/
@@ -882,6 +882,9 @@ Select.talkstuff
 		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[22]Make your own choices, \w3bud.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[47]Baking soda really helps with the fleas.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		"\i[5]*You ask him for an advice. \n\n[half]\w8\w4\s[42]Don't trust talking bones.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him about his magic. \n\n[half]\w8\w4\s[21]I can travel via shadows I guess. \w8\w6\s[18]It's not as dark in there as you may expect.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him about his magic. \n\n[half]\w8\w4\s[14]Transformations, \w3cloning, \w3shady shadow powers, \w3power of creating marketable mechs\w4\s[9] - I got the whole package! \w8\w5\s[3]Impressive, \w3I know.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
+		"\i[5]*You ask him about his magic. \n\n[half]\w8\w4\s[52]I can summon a staff, \w4\s[50]\i[6]made it myself. \w8\w6\s[51]You know it's cooler than any other staff's because it has spikes on it.\w6\w2\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[81]I'm fine, kiddo. You don't have to ask me all that.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[28]I spent the whole day looking for bananas. Don't laugh, it was a serious ordeal. ... I didn't find any, and I'm still pissed off about it.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
 		//"\0\s[0]\i[5]*You ask him how he is doing today. \n\n[half]\w8\w4\s[28]Hanging out with Bai He. That kid needs therapy after the whole LBD body possession shtick. I'm not a therapist, but I can show her some sick shadow plays.\w8\w4\n\n\_q\![*]\q[Talk more?,talkstuff]   \![*]\q[I'm done,CANCEL]\e"
