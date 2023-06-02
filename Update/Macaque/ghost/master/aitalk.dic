@@ -38,7 +38,7 @@ RandomTalk : nonoverlap_pool
 {
 	if monkeywatch == 0
 	{
-		if monkeymood > 0 && frenpoints > 100
+		if monkeymood >= 0 && frenpoints > 100
 		{
 			"\0\s[7]\i[5]*He seems relaxed.\e"
 			
@@ -56,7 +56,7 @@ RandomTalk : nonoverlap_pool
 			
 			"\0\s[7]Remember to take breaks, \w3dude.\e"
 		}
-		if patme > 50 && patme < 200 && monkeymood > 0
+		if patme > 50 && patme < 200 && monkeymood >= 0
 		{
 			"\0\s[11]\i[5]\i[6]*He's cautiously wondering if you'll pet him again.\e"
 			
@@ -109,7 +109,7 @@ RandomTalk : nonoverlap_pool
 			
 			"\0\s[24]\i[5]\i[6]*You hear him mumble something to himself.\w8\w6\s[24]\i[6]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2need to visit the girl\w4.\w4.\w4.\f[sub,false]\e"
 		}
-		if patme > 200 && monkeymood > 0
+		if patme > 200 && monkeymood >= 0
 		{
 			"\0\s[11]\i[5]\i[6]*He's wondering if you'll pet him again.\e"
 			
@@ -162,7 +162,7 @@ RandomTalk : nonoverlap_pool
 			
 			"\0\s[24]\i[5]\i[6]*You hear him mumble something to himself.\w8\w6\s[24]\i[6]\n\n[half]\f[sub,true]\w1.\w1.\w1.\w8\w2need to visit the girl\w4.\w4.\w4.\f[sub,false]\e"
 		}
-		if monkeymood > 0
+		if monkeymood >= 0
 		{
 			"\0\s[23]\i[5]*Looks like he's thinking about something.\s[23]\e"
 		
@@ -564,7 +564,7 @@ RandomTalk : nonoverlap_pool
 				"\0\s[56]Hm?\e"
 				"\0\s[60]\i[5]*He sneaks a look at you.\s[60]\e"
 				"\0\s[60]\w8\w8\w8\s[56]\w8\w8\w5\w8\w4\i[5]*You ask him if he wants anything.\n\n[half]\w8\w4\s[60]Hm? \w8\w6\s[58]Nah, \w3\s[59]I just wanted to see your reaction to this bit.\e"
-				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[56]Nuhuh. \w8\w4\[57]At least not yet.\e"
+				"\0\s[56]\i[5]*You ask Macaque if he's bored. \w8\w4\n\n[half]\s[56]Nuhuh. \w8\w4\s[57]At least not yet.\e"
 				"\0\s[56]\i[5]*He's amused that you wanted to show him this.\s[56]\e"
 				"\0\s[56]\i[5]*He's immersed.\s[56]\e"
 				"\0\s[58]Can you pause for a bit? \w8\w8\s[56]\w3.\w3.\w3.\w3.\w3.\w3.\w3.\w3.\w8\w6\w8\w4\s[57]Okay, \w3go.\e"

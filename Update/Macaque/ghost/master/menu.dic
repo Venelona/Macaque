@@ -42,7 +42,7 @@ MenuRun
 	--
 	"\n\n\_q\b2" //The \n\n means two new lines as detailed in the walkthrough, and \_q means quick session, meaning all the text from this point on will display instantly instead of a few letters at a time like normal ghost dialogue.
 	--
-	if monkeywatch == 0
+	if monkeywatch == 1
 	{
 		if lastTalk != "" //What this does is check to see if the ghost has already said a random bit of dialogue on its own, essentially by seeing if the lastTalk thing is NOT empty (!= means "does not equal").
 		{
@@ -62,11 +62,9 @@ MenuRun
 		//This option will force the ghost to say something from aitalk if the user clicks it. Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. IF you don't want two options for captions, delete one of the lines.
 		//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, as long as you separate it from the other options into its own section with two dashes above and below.
 		--
-		"You can...\n\n[half]\![*]\q[Talk,talkstuff]\n/
-		\![*]\q[Interact,interactstuff]\n\n"
+		"You can...\n\n[half]\![*]\q[Stand up,macwatchover]\n\n\n[half]"
 		--
-		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n/
-		\![*]\q[Run errands,dosomething]\n\n/
+		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n\n[half]/
 		\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 		
 		//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.
@@ -89,9 +87,11 @@ MenuRun
 		"\![*]\q[Say something,OnAiTalk]\n\n"
 	
 		--
-		"You can...\n\n[half]\![*]\q[Stand up,macwatchover]\n\n\n[half]"
+		"You can...\n\n[half]\![*]\q[Talk,talkstuff]\n/
+		\![*]\q[Interact,interactstuff]\n\n"
 		--
-		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n\n[half]/
+		"Or...\n\n[half]\![*]\q[Check your status,configmenu]\n/
+		\![*]\q[Run errands,dosomething]\n\n/
 		\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 		
 		//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.

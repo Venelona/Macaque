@@ -1,13 +1,13 @@
 charset,windows-1251
 file,developer_options.txtabe155229c2a4c19f45f89820f641afesize=138date=2023-04-02T18:48:35
 file,ghost/master/Macicon.ico905b70cb574d22b8308bf56f1a2165afsize=1150date=2023-05-14T18:22:00
-file,ghost/master/aitalk.dicb974acdf50faf4cceb1000ba3888f73bsize=42734date=2023-05-22T22:37:54
+file,ghost/master/aitalk.dic6ebef9f12089df43d2130d32f0a16a3csize=42739date=2023-06-02T18:27:43
 file,ghost/master/anchor.dic8a4f82ac7b47bb7ede6b046ae940cb3bsize=5178date=2021-12-12T15:05:56
 file,ghost/master/bootend.dicba756f6e174f465d30de41dbe377889fsize=27990date=2023-05-19T00:51:46
 file,ghost/master/commu.dic1f30b0144a12c26122252f8e40ce1b8esize=7018date=2023-05-17T21:45:57
 file,ghost/master/descript.txte0b612fc2e12f200a1b27da8d542a2e1size=2615date=2023-05-17T20:04:01
 file,ghost/master/etc.dicc127d0e10bc2c40aef497e05f1597432size=36597date=2023-05-17T21:35:45
-file,ghost/master/menu.dic95e46f952e2355b0770e0eafa70e5a4esize=58346date=2023-05-22T22:59:36
+file,ghost/master/menu.dic23676fee825a43d3df98c2fd45e4f847size=58346date=2023-06-02T18:03:49
 file,ghost/master/mouse.dic23c893d8eb98abdedebc887bf36b14basize=20852date=2023-05-18T20:07:53
 file,ghost/master/nameteach.dic2a1ce295fb4ec24f41f236deaf43e51asize=9735date=2023-05-16T23:54:30
 file,ghost/master/string.dic28147ca16d8b849b29e40af165409839size=7995date=2023-05-18T19:51:07
@@ -20,7 +20,7 @@ file,ghost/master/system/yaya_compatible.dic6165adc2ab688dcb09cf468fccd9e040si
 file,ghost/master/system/yaya_optional.dicf97af1ee6f108ee881d66d7f3de3f7d3size=10317date=2021-12-21T16:53:59
 file,ghost/master/system/yaya_shiori3.dic9dc65d9b8bc29e0c717ea9264f071093size=52088date=2021-12-21T16:54:00
 file,ghost/master/system_config.txt398943de62d5c9d25e3d3b286ba0ae92size=926date=2017-03-18T10:06:57
-file,ghost/master/word.dic6708dd7ef6829f83a1eff66f4122bd43size=9085date=2020-11-07T14:51:27
+file,ghost/master/word.dic8cb361c4aff476558a780414be92301csize=9089date=2023-06-02T17:44:01
 file,ghost/master/yaya.txt33faaf947bc4ec60a7f3ee511d362009size=1489date=2021-12-12T15:10:27
 file,ghost/master/yaya_config.txt134ca91eba1f7864526eaa3a2142dd20size=3920date=2017-03-18T10:07:23
 file,install.txtb6265dc9ae114e96fa094b7be70f96d4size=915date=2023-05-17T19:39:01
